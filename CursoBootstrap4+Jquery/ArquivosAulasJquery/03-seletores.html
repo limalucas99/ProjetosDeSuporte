@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<!--    <script src="js/jquery-3.3.1.js"></script>-->
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  
+    <style>
+        .destaque{
+            color: red;
+        }
+    </style>
+  
+</head>
+<body>
+    
+    <div class="container">
+        
+        <h1>curso Jquery</h1>   
+
+        <input type="text" class="txt" id="txt" placeholder="texto qualquer"><br>
+        <input type="email" class="email" id="email" placeholder="email qualquer"><br>
+        
+        <a href="#" title="qualquer link">Link falso</a>
+        <a href="#">Link falso</a> |
+        
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+        <p class="destaque">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+        
+        <h2>Seletores jQuery</h2>
+        
+        <ul>
+            <li> item 1</li>
+            <li> item 2</li>
+            <li> item 3
+                <ul>
+                    <li>item 3.1</li>
+                    <li>item 3.2</li>
+                    <li>item 3.3</li>
+                    <li>item 3.4</li>
+                </ul>
+            </li>
+            <li> item 4</li>
+            <li> item 5</li>
+            <li> item 6</li>
+            <li> item 7</li>
+        </ul>
+    
+    </div>
+    
+    
+    <script>
+        $(function(){
+            $('#txt').val('alterado com jquery');
+            $('.email').val('alterado com jquery');
+            
+        $('p:not(.destaque), li').css('color', 'blue');
+        //p:not(.destaque) = seleciona os p's q não pertencem À classe destaque    
+            
+            
+        $('.container > ul > li').css('color','black');
+        
+        $('.destaque ~ p').addClass('destaque'); 
+            /*   +p = próximo p depois de .destaque
+                 ~p = próximos p's depois de .destaque
+                 */
+            
+        $('li:first-child').css('color' , 'green'); 
+        console.log($('li:first-child').length)
+            //first - pega a primeira li 
+            //first-child pega o primeiro filho de cada li
+            //mesma coisa com last e last-child
+            
+            $('p:gt(2)').css({
+              'color': 'orange',
+                fontSize: '22px'
+            })
+            // gt() - grand than pega todos os parágrafos com índices maior do que 2
+             
+            $('li:lt(2)').css('fontSize','30px');
+            // lt() - less than pega todos os parágrafos com índices menor do que 2
+            
+            
+            $('a[title]').css('color','red');
+            $('a:not([title])').hide()
+            
+        })
+        
+       // $('p, li').css('color', '#999');
+        
+      
+        
+    </script>
+</body>
+</html>

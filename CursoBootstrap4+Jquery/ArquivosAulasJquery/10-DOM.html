@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+	<!--    <script src="js/jquery-3.3.1.js"></script>-->
+	<script
+	src="https://code.jquery.com/jquery-3.3.1.js"
+	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+	crossorigin="anonymous"></script>
+	<style>
+	
+	.box{
+		border: 5px dashed black;
+		background: #ccc;
+		
+		margin: 20px auto;
+		min-height: 40px;
+		width:  200px;
+	}
+	.box:not(.atual){ /*faz todos os elementos que não são o .atual ficarem com mouse "pointer" qdo passarem por cima
+        sintaxe :not(){}  
+        nesse caso está dizendo que tudo que é .box e que não está na clase .atual ficará c cursor assim*/
+		cursor: pointer;
+    
+	}
+	
+	.atual{
+		background-color: #555;
+		color: white;
+	}
+</style>
+
+
+</head>
+<body>
+	
+	<section class="container">
+		<div class="box atual"></div>
+		<div class="box" title="apenas um title ficticio"></div>
+		<div class="box"></div>
+		<div class="box" title="apenas outro title ficticio"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+	</section>
+<hr>	
+	<section class="container">
+		<div class="box atual">box 1</div>
+		<div class="box">box 2</div>
+		<div class="box">box 3</div>
+	</section>
+
+	<hr>	
+	<section class="container">
+		<div class="box atual">box 1</div>
+		<div class="box">box 2</div>
+		<div class="box">box 3</div>
+		<div class="no-box">box 4</div>
+	</section>
+
+
+	<script>
+       
+    //    $('.container').eq(0) pega apenas o primeiro .container que encontrar
+      //pegar elementos com atributo title
+        //eq deixa td como jQuery
+        //each = foreach, vou fzr uma ação em cada elemento encontrado
+        $('.container').eq(0).children('.box').filter('[title]').each((i,el)=>{
+            let $el = $(el);
+            //transforma a variável em objeto jQuery
+            let title = $el.attr('title');
+            //pega o valor do atributo title
+            $(el).text(title);
+            //passou o title para o texto 
+            $(el).removeAttr('title');
+            //removeu o atributo title
+        })
+        
+        
+        $('.container').eq(0).children('.box').on('click', function(e){
+            
+            //hasClass verifica se determinado objeto jQuery tem determinada classe
+            if($(this).hasClass('atual')){
+                $(this).append('<p>item clicado novamente</p>')
+            }
+            else{
+                 $('.container').eq(0).find('.atual').removeClass('atual');
+            //remove a classe .atual
+            $(this).addClass('atual');
+            //adiciona a classe de volta
+            $(this).prepend('<p>clicou<p>');
+            //prepend = adiciona o texto 'clicou' junto com o texto que já estava lá, adiciona no começo
+            //append = adiciona o texto 'clicou' junto com o texto que já estava lá, adiciona no final
+            }
+            
+           
+            
+        })
+        
+        $('.container').eq(1).children('.box').on('click', function(e){
+            console.log(this, e.target, e.currentTarget);
+            $(e.target).toggleClass('atual').empty();
+        })
+        
+        
+        $('.container').eq(2).children('.box').on('click', function(e){
+            console.log('1')
+            console.log(this)
+            console.log(e.target)
+            console.log(e.currentTarget);
+           
+        })
+        
+        //seleciona indice 2
+        $('.container').eq(2).on('click', '.box',function(e){
+            console.log('2')
+            console.log(this)
+            console.log(e.target)
+            console.log(e.currentTarget);
+           //melhor maneira de fazer
+            //dessa maneira o listener fica sempre esperando criar elementos novos
+        })
+        
+        //criando um elemento novo
+        $('<div class="box">box5</div>').appendTo(' .container:eq(2) ');
+        //append coloca depois, prepend coloca antes
+        $('.container:eq(2)').append('<div class="box">box6</div>');
+		
+
+	</script>
+	</body>
+	</html>

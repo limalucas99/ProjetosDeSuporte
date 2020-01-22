@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <style>
+
+    p{
+        margin-top: 1rem;
+    }
+    
+    p .destaq{
+        background: yellow
+    }
+    
+    </style>
+    
+</head>
+<body>
+    
+
+<div class="container">
+
+    <input type="text" class="form-control my-5">
+    
+    <div class="content">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis casa aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>lorem</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis teste aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>lorem</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis teste aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>lorem</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi casa ut aliquip ex ea commodo
+    consequat. Duis teste aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>lorem</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor javascript incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis teste aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>lorem</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do casa eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis frontend aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id teste est laborum.</p>
+    <p>lorem</p>
+    </div>
+</div>
+   <script
+	src="https://code.jquery.com/jquery-3.3.1.js"
+	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+	crossorigin="anonymous"></script>
+
+    <script>
+        
+        let $p = $('p');
+        //pega todos os parágrafos
+        let filtrado;
+        $(':input').on('keyup',filtrar)
+        //keyup = quando apertar qualquer tecla
+        
+        function filtrar(e){
+            let val = $(this).val();
+            //o this nesse caso é o input
+            if(val.length >= 3){
+                
+                 filtrado = $.grep($p.close(), function(el, i){
+                     //clone() = clona o p sem fazer alterações no original
+                     //filtrado é um array de parágrafos
+                    return $(el).text().indexOf(val) >= 0;
+                     //caso a linha acima seja falsa, retorna -1
+                })
+                
+                if(filtrado.length){
+                    // $(el) é o meu parágrafo
+                    $('.content').empty().append($.map(filtrado, (el, i) => {
+                            $(el).html($(el).text().replace(val,'<span class="destaq">'+val+ '</span>'))
+                            return $(el)} ))
+                    // $(el) será transformado em um objeto jQuery
+                    // eu tenho um array de objetos jQuery
+                }
+                else{
+                    $('.content').empty().append($('<p>').text('nenhum resultado encontrado').css('text-align','center'));
+                }
+            }
+            else{
+                $('.content').empty().append($p);
+                //Caso não encontre nada ele limpa td e depois adiciona os parágrafos novamente
+               // $('.destaq').unwrap();
+                //tirar classe .destaq dos p's
+            }
+        }
+    	
+    </script>
+   
+    
+</body>
+</html>

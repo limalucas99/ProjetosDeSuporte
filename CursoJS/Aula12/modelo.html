@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <link rel="stylesheet" href="estilo.css"/>
+    <title>Hora do dia</title>
+</head>
+<body >
+    <header>
+        <h1>Verificador de Idade</h1>
+        <script src="Script1.js"></script>
+    </header>
+
+    <section>
+        <div id="">
+           <p>Ano de nascimento:</p>
+            <input type="number" name="ano" id="txtano" min="0"/>
+            <p>
+                Sexo:
+                <input type="radio" name="radsex" id="masc" checked />
+                <label for="mas">Masculino</label>
+                <input type="radio" name="radsex" id="fem"/>
+                <label for="fem">Feminino</label>
+            </p>
+            <p>
+                <input type="button" value="Verificar" onclick="verificar()"/>
+            </p>
+        </div>
+        <div id="res">
+            Preencha os dados acima para ver o resultado!
+            
+
+        </div>
+        
+    </section>
+
+    <footer>
+        <p>&copy; CursoemVideo</p>
+
+    </footer>
+   
+</body>
+</html>

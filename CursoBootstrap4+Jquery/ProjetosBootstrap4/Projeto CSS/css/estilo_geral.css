@@ -1,0 +1,117 @@
+body{
+    margin: 0;
+    padding: 0;
+    font: 100% arial, sans-serif;   /* margin é utilizada para dar
+    espaços entre elementos de um site*/
+    background-color: #ccc;
+}
+
+section{
+    margin: 1rem 0;
+    background-color: white;
+    padding: .75rem;
+}
+
+section h2{
+    border-bottom: 2px solid #ccc;
+    padding: .75rem;
+    margin: 0;
+    background: #eee;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: .5rem;  
+}
+
+.jumbotron{
+    min-height: 80vh;
+    background-image: url(../imgs/bg-3.jpg);
+    background-size: cover; /* O valor cover especifica que a imagem de background será redimensionada para ter o menor tamanho possível para que ela cubra toda a área do elemento ao qual ela pertence sem deixar espaçoes em branco e mantendo as proporções originais da imagem*/
+    background-position: right center;
+    padding: 10rem 2rem;
+    color: white;
+    text-align: center;
+}
+
+.jumbotron h1{
+    font-size: 3.5rem; /* */
+    text-shadow: 2px 2px 1px rgba(0,0,0,.8);
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.jumbotron p{
+    padding: 1rem;
+    border-bottom: 2px solid white;
+    background-color: black;
+    font-size: 1rem;
+    display: inline-block; /* Deixa a borda somente em volta do texto*/
+}
+
+.nav{
+    position:absolute;
+    top: 2rem;
+    right: 2rem; /*Deixar nav no lado direito*/
+    z-index: 1; /* Garantir que ele fique por cima de todo mundo*/
+}
+
+/* com essa regra, somente o primeiro nível de li será afetado*/
+.nav > li{
+    border: 1px solid white;
+    margin-left: 1rem;
+    background-color: rgba(0,0,0,.1);
+}
+
+.nav > li:hover{
+    background-color: rgba(0,0,0,.3);
+}
+
+.nav > li a{
+   padding: 1rem;
+    color: white;
+    text-transform: uppercase;
+    font-size: .75rem;
+    text-decoration: none; /* Tirar sublinhado*/
+}
+
+.cards-container{
+    
+    padding: .75rem 1.25rem;
+}
+
+.cards-container .card{
+    
+    border-radius: 0;
+    border: none;
+}
+
+.cards-container .card-body{
+    
+    background-color: rgba(70,70,70);
+    padding: 1rem .75rem;
+    margin: 0;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Espaço entre as letras*/
+    font-size: .78rem;
+    color:white;
+}
+
+/*Toda class que começar com col*/
+.cards-container [class^=col]{
+    padding-left: .5rem;
+}
+
+.rodape{
+    height: 5rem;
+    color: white;
+    font-size: .8rem;
+    text-align: center;
+    text-shadow: 2px 2px 2px black;
+    background-color: #6b6c68;
+   /*
+    align-items: center;
+    justify-content: center;
+    Fiz isso pela bootstrap, mas poderia também ter feito por aquiyt*/
+}
+

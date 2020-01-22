@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Web Fundamentos</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/estilo_geral.css">
+
+</head>
+<body>
+
+<style>
+    div[class^=col]:nth-child(odd){ /* :ntc-child(odd) seleciona todos os elementos pelo número, odd e even para escolher
+        também pode ser adicionado exemplo 3n+1 para fazer algo a cada 3 elementos*/
+        background: #ccc;
+    }
+    div[class^=col]:nth-child(even){
+        background: #eee;
+    }
+    
+    </style>
+
+<div class="container">
+<div class="row"> <!-- a class "row" deixa td em uma linha só-->
+    <!--O Bootstrap é divido em 12 colunas, por padrão-->
+<div class="col">col1</div>
+<div class="col">col1</div>
+<div class="col">col1</div>
+<div class="col">col1</div>
+<div class="col">col1</div>
+<div class="col">col1</div>
+<div class="col">col1</div>
+<div class="col">col1</div>
+<div class="col">col1</div>
+<div class="col">col1</div>
+<div class="col">col1</div>
+<div class="col">col1</div>
+</div>
+</div>
+    <hr>
+    <div class="container">
+<div class="row"> <!-- a class "row" deixa td em uma linha só-->
+    <!--O Bootstrap é divido em 12 colunas, por padrão-->
+<div class="col-1 col-sm-5 col-lg-10">col1</div>
+<div class="col-1 col-sm-5 col-lg-10">col1</div>
+<div class="col-1 col-sm-5 col-lg-10">col1</div>
+<div class="col-1 col-sm-5 col-lg-10">col1</div>
+<div class="col-1 col-sm-5 col-lg-10">col1</div>
+<div class="col-1 col-sm-5 offset-sm-4 col-lg-10 offset-lg-2">col1</div>
+<!-- comando offset pula um espaço dentro do intervalo, deixa um Ôco entre as colunas
+ <!-- em telas pequenas vai ocupar 4 colunas, em telas md 12
+ container-fluid ocupa 100% da tela-->
+<!-- col+n o número de colunas que uma classe vai ocupar-->
+</div>
+</div>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+
+</html>

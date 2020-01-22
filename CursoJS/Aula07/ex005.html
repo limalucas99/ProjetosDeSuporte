@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Primeiros passos com DOM</title>
+    <style>
+        body{
+            background:blue;
+            font: normal 18pt Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Iniciando estudos com DOM</h1>
+    <p>Aqui vai o resultado</p>
+    <p>Aprendendo a usar o <strong>DOM</strong> em Javascript</p>
+    <div id="msg">Clique em mim</div>
+    <script>
+        var corpo = window.document.body;
+        var p1 = window.document.getElementsByTagName('p')[0];
+        // window.document.write(window.document.URL);
+        //window.document.write("Está escrito assim: " + p1.innerText);
+        //corpo.style.background = "white";
+        //p1.style.color = "green";
+        var d = window.document.getElementById("msg");
+        d.style.background = "green";
+        //d.innerText = "Estou aguardando...";
+        //Posso fazer a seleção por class, name, id, tag, e por seletor
+
+        var x = window.document.querySelector("div#msg"); // id = # | class = .
+    </script>
+</body>
+</html>
