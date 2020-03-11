@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Curso Javascript Completo 2018</h1>
+    
+    
+    <script>
+    
+     //Função que será utilizada com operador New
+     //sempre deverá começar com letra maiúscula
+     function Caneta(preco, cor){
+         //privado
+         var cor = cor || 'black';
+         //publico
+         this.preco = preco || 1;
+         //caso não seja passado preco por parametro, o preço será 1
+         //caso não seja passada a cor por parametro, o preço será 2
+         this.mudarCor = function(cor){
+             if(cor !== "red" || cor !== "blue" || cor !== "black"){
+                 return;
+             }
+             color = cor;
+         }
+         
+         this.pegaCor = function(){
+             return color;
+         }
+         
+         //dessa maneira só pode ter essas cores
+     }
+        
+     
+     var caneta1 = new Caneta(2, 'red');
+    
+        
+    </script>
+</body>
+</html>

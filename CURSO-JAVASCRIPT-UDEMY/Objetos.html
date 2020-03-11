@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    
+    <h1>Curso Javascript Completo 2018</h1>
+    
+     <script>
+         
+         //Criando Objeto
+         var obj = new Object();
+         //Sintaxe Literal, usada para criar objetos(Json)
+         obj = {"title": "titulo", "texto": "Lorem"};
+         console.log(obj);
+         
+         var hoje = new Date();
+         
+          //x vira um Array
+         //[1,2] == [1,2]  = false
+         //Arrays nunca são iguais
+         
+        var x = [0];            
+            function mudaArr(x){
+                var y = x;
+                y.push(2);
+                x.push(3);
+            }
+            
+            mudaArr(x);      
+            
+            console.log('-----');
+            
+            var n = 0;
+            function mudaN(n){
+                var n2 = n;
+                console.log(++n2);
+            }
+            mudaN(n);
+            console.log(n);
+            
+            console.log('----');
+            
+            function mudaCor(cor){
+                console.log(this);
+                this.cor = cor;
+                //this significa que ele vai alterar onde for chamado
+                //nesse caso caneta1 ou caneta2
+                //o this é dinamico
+            }
+            
+            //criando um Objeto Customizado
+            var caneta1 = {
+                cor: 'red',
+                preco: 1,
+                mudarCor: mudaCor
+            }
+            //é possível fazer caneta1.mudarCor("yellow");
+            
+            
+            //criando um Objeto Customizado
+            var caneta2 = {
+                cor: 'blue',
+                preco: 2,
+                mudarCor: mudaCor
+            }
+            //é possível fazer caneta1.mudarCor("gray");
+    
+    </script>
+</body>
+</html>

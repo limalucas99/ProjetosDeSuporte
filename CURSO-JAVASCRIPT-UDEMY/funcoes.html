@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <script>
+        
+        
+        //Forma Literal
+        function somar(n1,n2){
+            //Corpo da função
+            return n1 + n2;
+        }
+        
+       var soma = somar(10,20);
+       console.log("Resultado: ", soma);
+        
+       //Funções podem ser tratadas como objetos    
+       somar.teste = "propriedade da função";
+       console.log(somar.teste);
+        
+        
+        //Função anonima
+        //é possível atribuir uma função a uma variável
+        var teste = function(str){
+          console.log("teste ",str);  
+        };
+        
+        //chamando variável para executar a função
+        teste("Olá");
+        
+        var x = 0;
+        var z = 1
+        
+        function mostraX(){
+            'use strict';//faz com que variáveis globais dentro do escopo da função
+            //virem locais
+            x = 10; //altera o valor global da variável
+            var z = 2; //altera somente dentro da função
+            console.log("mostra x ", x);
+        }
+        mostraX()
+        
+        console.log("mostra x: ", x);
+        
+        //criar variáveis globais dentro do escopo de uma função é uma pratica ruim
+    
+    </script>
+    
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <script>
+    
+        //função IIFE - função que se auto-chama
+        (function(){
+            'use strict';
+            var isValid = false;
+            console.log(isValid);
+            
+            function somar(/*arr*/){
+                //mesmo que a função não receba parametros, por meio do
+                //arguments , é possível pegar todos os parametros q foram passados
+                console.log(arguments);
+                //arguments = mostra os argumentos que foram passados
+                //nos parametros da função
+                var result = 0;
+                var x = 0;
+                var qtd = arguments.length;
+                while(typeof arguments[x] === 'number'){
+                      result += arguments[x];
+                      x++;
+                      }
+                console.log(qtd, ' valores');
+                console.log('result: ', result);
+            }
+            somar(20, 20, "abacate", 30);
+        })();
+    
+        //tudo dentro dessa função IIFE será executado assim que o programa iniciar
+            (function(){
+                function calcularIMC(peso, altura, callback){
+                    //callback é uma função sendo passada por parametro
+                    var imc = peso / (altura * altura); 
+                    
+                    if(callback && typeof callback === 'function'){
+                    //se o callback = true , ou seja, se foi passado por parametro
+                    //e se o callback é uma função, tipo =='function'
+                        return callback(imc); 
+                    }
+                    console.log('nao passou callback')
+                    return imc;
+                }
+                
+                function classificaIMC(imc){
+                                        
+                    if(imc <= 16.9 ){
+                        return 'muito abaixo do peso';
+                    } else if (imc <= 18.4){
+                        return 'abaixo do peso';
+                    } else if(imc <= 24.9){
+                        return 'normal';
+                    } else if(imc <= 29.9) {
+                        return 'acima do peso';
+                    } else if(imc <= 34.9){
+                        return 'obesidade 1';
+                    } else if(imc <= 40){
+                        return 'obesidade 2';
+                    } else {
+                        return 'obesidade 3';
+                    }
+                }
+                
+                var peso = 65;
+                var altura = 1.75;
+                
+                var imc = calcularIMC(peso, altura);
+                
+                console.log('classificacao IMC: ', imc);
+                
+              
+                
+            })();
+            
+        
+     
+        
+    </script>
+</head>
+<body>
+    
+    <h1 id="cursoNome">Curso Javascript</h1>
+    
+    <script>
+    
+          //textContent = sempre texto puro
+          //document.getElementById('cursoNome').textContent = "alterado via JS";
+         document.getElementById('cursoNome').innerHTML = "<i>Alterado via JS<i>";
+        
+    </script>
+    
+</body>
+</html>

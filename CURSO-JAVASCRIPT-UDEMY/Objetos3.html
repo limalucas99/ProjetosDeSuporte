@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   
+    <script>
+            
+            var pessoa1 = {
+                nome: 'daniel',
+                sobrenome: 'tapias morales'
+            };
+            
+            var pessoa2 = {
+                nome: 'josé',
+                sobrenome: 'Geraldo'
+            };
+            
+            var pessoa3 = {
+                nome: 'maria',
+                sobrenome: 'Oliveira'
+            };
+            
+        
+            
+            for (var i = 1; i <= 3; i++){
+                console.log(window["pessoa"+i].nome + ' ' + window["pessoa"+i].sobrenome);
+            }
+    
+    </script>
+</body>
+</html>
