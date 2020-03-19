@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   
+   
+   <script>
+    
+    //É necessário ser instanciado
+    var minhaData = new Date();
+    console.log(minhaData);  
+    console.log(minhaData.getDate());
+    console.log(minhaData.getDay());
+    console.log(minhaData.getMonth());
+    console.log(minhaData.getYear());
+    //Quantos anos passaram depois de 1900
+    console.log(minhaData.getFullYear());
+    console.log(minhaData.getHours());
+    console.log(minhaData.getMinutes());
+    console.log(minhaData.getSeconds());
+    //Pega os segundos em que o objeto foi instânciado
+    console.log(minhaData.getMilliseconds());
+    console.log(minhaData.getTime());
+    //Quantos segundos passaram depois de 1900
+     console.log(+new Date());
+     console.log(minhaData.setTime(0));
+     //Retrocede os segundos
+     console.log(minhaData.setDate(23));
+     //Retrocede a data
+     console.log(minhaData.setYear(1970));
+     console.log(minhaData.setMinutes(33));
+     console.log(minhaData.setMilliseconds(55));
+     console.log(minhaData);
+     minhaData = new Date(2017, 11, 23, 22, 47, 30, 27);
+     //Os meses só vão até 11, começam do 0
+       minhaData = new Date("2017/12/23");
+       //Não é recomendado usar dessa forma
+     console.log(minhaData);  
+    
+     
+    
+    </script>
+    
+</body>
+</html>

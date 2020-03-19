@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    
+    <script>
+    
+    (function(){
+        
+        var dataAtual = new Date();
+        //É necessário instanciar para utilizar
+        dataAtual.setHours(0);
+        dataAtual.setMinutes(0);
+        dataAtual.setSeconds(0);
+        dataAtual.setMilliseconds(0);
+        var anoAtual = dataAtual.getFullYear();
+        //Pegando ano atual
+        
+        
+        
+        
+        var dataNiver = new Date(anoAtual, 6, 1);
+        
+        var dataAtualTS = dataAtual.getTime();
+        var dataNiverTs = dataNiver.getTime();
+        
+        if(dataNiverTs === dataAtualTS){
+            alert('Parabéns pelo seu aniversário');
+            return;
+        }
+        
+        if(dataNiverTs < dataAtualTS){
+            dataNiver.setFullYear(++anoAtual);
+            var dataNiverTs = dataNiver.getTime();
+        }
+        
+        const UM_DIA_TS = 24 * 60 * 60 * 1000;
+        //ver quantos milisegundos tem um dia
+        
+        var diferenca = dataNiverTs - dataAtualTS;
+        console.log(diferenca / UM_DIA_TS);
+        
+        
+        
+        
+    })();
+    
+    
+    </script>
+    
+</head>
+<body>
+   
+   <h1>Curso Javascript Completo 2018</h1>
+    
+</body>
+</html>

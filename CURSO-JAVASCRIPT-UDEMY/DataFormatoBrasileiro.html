@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <script>
+    
+    (function(){
+        
+    
+    var dataAtual = new Date();
+    
+        
+   
+        
+    
+    function FormataData(data){
+        
+    var dia = data.getDate() < 10 ? '0' + data.getDate() : data.getDate();
+    
+    var mes = data.getMonth() + 1;
+    mes = mes < 10 ? '0' + mes : mes;
+        
+        return dia + '/' + mes + '/' + data.getFullYear();
+        
+    }
+        
+    console.log(FormataData(dataAtual));    
+    
+    })();  
+    
+    
+    
+    </script>
+    
+</head>
+<body>
+    
+</body>
+</html>
