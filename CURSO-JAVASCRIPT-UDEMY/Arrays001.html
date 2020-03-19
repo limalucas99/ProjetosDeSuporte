@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   
+   <script>
+       
+var arr = [1,2,3,4,5,'banana', 40, 'betterraba','banana'];
+       
+ var sohNumeros = arr.every(function(el/*,indice,obj*/){
+       //Função every do array pode receber 3 parâmetros
+       //É tipo um for
+      // console.log(el);
+       //console.log('indice', indice);
+       //console.log(obj);
+       return typeof el === 'number';
+     //precisa que todos sejam true para retornar true
+   });
+
+  console.log(sohNumeros);
+
+   var aoMenosUmNumero = arr.some(function(el){
+       return typeof el === 'number';
+       //se tiver um true já retorna true
+   });
+       
+   console.log(aoMenosUmNumero);
+       
+       
+    var numeros = arr.filter(function(el,indice,arr){
+       return typeof el === 'number';
+     //Retorna um novo arr só com os valores True
+    });
+       
+    console.log(numeros);
+    
+    arr.forEach(function(el,indice,arr){
+       console.log('el',el, 'indice',indice, 'i - ', arr.toString()); 
+    });
+    
+    var posicaoStr1 = arr.indexOf('banana',5);
+    //O segundo parâmetro é a partir de qual número eu vou procurar
+    console.log('posicao', posicaoStr1);
+       
+    var posicaoStr1 = arr.lastIndexOf('banana',5);
+    //O segundo parâmetro é a partir de qual número eu vou procurar, de trás pra frente
+    console.log('posicao', posicaoStr1);
+       
+    
+   console.log(numeros);
+    
+   numeros = numeros.map(function(el,i){
+     return el * i;
+    });
+       
+    console.log(numeros);
+       
+    var arr2 = arr.concat(numeros, 'Ola','adicionado por concat');
+    //Função concat junta 2 arrays
+    //É possível utilizar mais parâmetros
+    console.log(arr2);
+       
+       
+     var str = arr2.join(' -separado por join- ');
+     //Junta os elementos do Array, e utiliza como separador o caractere que foi passado por parâmetro
+     console.log(str);
+       
+       
+     arr.push('novo', 'item');
+     //Atribui itens em um array e retorna os itens adicionados
+     console.log(arr);
+       
+       
+     var ultimoItem = arr.pop();
+     //Remove o último elemento de um Array
+     console.log(ultimoItem);
+     console.log(arr);
+       
+       
+    var primeiroItem = arr.shift();
+    //Remove o primeiro elemento de um array
+    console.log(typeof ultimoItem);
+    console.log(arr);
+       
+    arr.unshift('banana', false, 'tomate','tomatinho','tomatão');
+    //Insere itens no começo do array
+    console.log(arr);
+       
+    
+    var somaDeArr = numeros.reduce(function(anterior, atual,indice){
+    //Método uutilizado para fazer operações com todos os elementos do arr
+        return anterior + atual;
+    },12);
+    //Atribuindo valor aleatório a primeira passada
+    //Dessa forma dará a soma dos elementos + 12
+    //Também é possível usar para concatenar strings
+    //reduceRight faz a mesma coisa só que da direita para esquerda. Pode ser usado para inverter strings
+    console.log(numeros);
+    console.log(somaDeArr);
+    
+    console.log([10,20,30].reverse());
+    //O método reverse() inverte a ordem dos elementos do arr
+       
+    console.log(arr.slice(2));
+    console.log(arr.slice(2, 5));
+    //Retorna a partir do indice passado por parâmetro, não modifica o Array original
+    //O segundo parâmetro indica até qual indice ele irá
+       
+    console.log(arr.splice(2,3,'limao','melão'))
+    //Método SPLICE, com P, a partir da posição 2, remove 3, e insere 2 itens
+    //O retorno dele são os itens removidos
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+  </script>     
+    
+    
+</body>
+</html>

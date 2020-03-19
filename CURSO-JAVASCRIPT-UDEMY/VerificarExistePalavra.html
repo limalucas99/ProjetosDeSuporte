@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<style>
+    
+    .destaque{
+        background-color: red;
+        font-size: 20px;
+    }
+    
+    </style>
+    
+<body>
+    
+    
+    <div class="container">
+            <h1>Curso Javascript Completo 2018</h1>
+       
+           <p class="aa">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem dolores veniam perspiciatis vel cum reprehenderit tempora laudantium, harum aspernatur, neque consequuntur aperiam, optio consectetur. Consectetur quod iure perspiciatis commodi eligendi!</p>
+           <p class="aa">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem dolores veniam perspiciatis vel cum reprehenderit tempora laudantium, harum aspernatur, neque consequuntur aperiam, optio consectetur. Consectetur quod iure perspiciatis commodi eligendi!</p>
+           <p class="aa">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem dolores veniam perspiciatis vel cum reprehenderit tempora laudantium, harum aspernatur, neque consequuntur aperiam, optio consectetur. Consectetur quod iure perspiciatis commodi eligendi!</p>
+           <p class="aa">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem dolores veniam perspiciatis vel cum reprehenderit tempora laudantium, harum aspernatur, neque consequuntur aperiam, optio consectetur. Consectetur quod iure perspiciatis commodi eligendi!</p>
+           <p class="aa">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem dolores veniam perspiciatis vel cum reprehenderit tempora laudantium, harum aspernatur, neque consequuntur aperiam, optio consectetur. Consectetur quod iure perspiciatis commodi eligendi!</p>
+           <p class="aa">Lorem ipsum dolor JAVASCRIPT sit amet, consectetur adipisicing elit. Voluptatem dolores veniam perspiciatis vel cum reprehenderit tempora laudantium, harum aspernatur, neque consequuntur aperiam, optio consectetur. Consectetur quod iure perspiciatis commodi eligendi!</p>
+           <p class="aa">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem dolores veniam perspiciatis vel cum reprehenderit tempora laudantium, harum aspernatur, neque consequuntur aperiam, optio consectetur. Consectetur quod iure perspiciatis commodi eligendi!</p>
+           <p class="aa">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem dolores veniam perspiciatis vel cum reprehenderit tempora laudantium, harum aspernatur, neque consequuntur aperiam, optio consectetur. Consectetur quod iure perspiciatis commodi eligendi!</p>
+           <p class="aa">Lorem ipsum dolor sit JAVASCRIPT amet, consectetur adipisicing elit. Voluptatem dolores veniam perspiciatis vel cum reprehenderit tempora laudantium, harum aspernatur, neque consequuntur aperiam, optio consectetur. Consectetur quod iure perspiciatis commodi eligendi!</p>
+           <p class="aa">Lorem ipsum </p>
+
+        </div>
+        
+        <script>
+    
+    
+        
+            var paragrafos = document.querySelectorAll('p');
+            
+            for (var i = 0; i < paragrafos.length; i++){
+                var temJS = paragrafos[i].textContent.toLowerCase().indexOf('javascript') >= 0;
+                paragrafos[i].className = temJS ? 'destaque' : '';
+            }
+            
+            
+            
+        
+    
+    </script>
+    
+</body>
+</html>
