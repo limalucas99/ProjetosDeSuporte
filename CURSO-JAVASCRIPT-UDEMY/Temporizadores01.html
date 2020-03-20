@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    
+</head>
+<body>
+   
+  <div>
+      
+      
+  </div>
+    
+</body>
+
+ <script>
+    
+       //Não são nativos do ECMAScript
+       
+      //JS É SINGLE THREAD - THREAD UNICAAAAA
+            
+            var n = 0;
+            
+            function somaUm(){
+                console.log('n', ++n);
+                
+                if(n >= 10){
+                    clearInterval(intervalo);
+                }
+            }
+            
+            var timeout = setTimeout(somaUm, 1000);
+            //é executado uma vez, em um determinado tempo
+            alert(timeout);
+            //verifica qual é o id do setTimeout
+            
+            var intervalo = setInterval(somaUm, 1000);
+            //É sempre executado de tempo em tempo
+            
+            console.log(intervalo);
+            //verifica qual é o id do setInterval
+            
+            var str = '';
+            var d = document.querySelector('div');
+            var timeoutTeste = setTimeout(function(){
+                
+                for (var i = 0; i < 1000; i++){
+                    str += "i: " + i + " -- ";
+                    d.textContent += str;
+                }
+                
+            }, 3000)
+            
+            //O JAVASCRIPT PARA DE EXECUTAR UM MÉTODO PARA EXECUTAR O OUTRO
+            //SOMENTE UM PROCESSO É EXECUTADO POR VEZ, JAVASCRIPT É SINGLE THREAD
+            //O CÓDIGO PRINCIPAL E OS TEMPORIZADORES SÃO EXECUTADOS NUMA ÚNICA THREAD
+            //SE UM CÓDIGO DEMORA MUITO, O OUTRO AGUARDA PARA SER EXECUTADO
+    
+    </script>
+    
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <style>
+            .banner{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                box-shadow: 0 0 0 1000px rgba(0,0,0,.8);
+                display: none;
+            }
+            
+            .banner__close{
+                position: absolute;
+                top: 5px;
+                right: 5px;
+            }
+        </style>
+    
+</head>
+<body>
+   
+   <h1>Lógica de programação com Javascript</h1>
+   
+   <div class="banner" style="display: block;">
+            <h2>Banner Irritante</h2>
+            <button class="banner__close">X</button>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi debitis autem, consectetur, explicabo quisquam voluptatibus nobis quaerat repellat nam, ad vel similique doloremque, doloribus labore quasi provident. Excepturi, odit, velit.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi debitis autem, consectetur, explicabo quisquam voluptatibus nobis quaerat repellat nam, ad vel similique doloremque, doloribus labore quasi provident. Excepturi, odit, velit.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi debitis autem, consectetur, explicabo quisquam voluptatibus nobis quaerat repellat nam, ad vel similique doloremque, doloribus labore quasi provident. Excepturi, odit, velit.</p>
+        </div>
+   
+   <script>
+    
+       
+            
+            (function(){
+                
+                debugger;
+                
+                var $banner = document.querySelector('.banner');
+                var $bannerBtn = document.querySelector('.banner__close');
+                //seleciona as classes do popUp
+                
+                $bannerBtn.addEventListener('click', escondeBanner);
+                //adiciona um Listener ao evento click do botão
+                
+                var intervaloEsconde = null;
+                
+                function mostraBanner(){
+                    $banner.style.display =  'block';
+                    //mostra o banner
+                    
+                    intervaloEsconde = setTimeout(escondeBanner, 3000);
+                    //executa a função esconde Banner após 3 segundos
+                }
+                function escondeBanner(){
+                    $bannerBtn.removeEventListener('click', escondeBanner)
+                    //Com jQuery não é necessário esse código
+                    $banner.parentNode.removeChild($banner);
+                    //Para remover do DOM, sempre é necessário chama o Pai e pegar o nó
+                    
+                    clearTimeout(intervaloEsconde);
+                }
+                
+                setTimeout(mostraBanner, 3000);
+                
+                
+            })()
+            
+        
+    
+    </script>
+    
+</body>
+</html>
