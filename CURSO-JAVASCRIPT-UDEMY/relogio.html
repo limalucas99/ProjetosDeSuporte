@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   
+   <h1>Javascript Completo</h1>
+   
+   <div class="relogio">
+       
+       
+       
+   </div>
+   
+   
+   <script>
+    
+    (function(){
+        
+        var $relogio = document.querySelector('.relogio');
+        
+        
+        function pegarHora(){
+            
+            var data = new Date();
+            
+            var hora = formata(data.getHours());
+            var minuto = formata(data.getMinutes());
+            var segundos = formata(data.getSeconds());
+            
+            return hora + ':' + minuto + ':' + segundos;
+        }
+        
+        
+        function formata(t){
+            return t < 10 ? '0' + t : t;
+        }
+        
+        
+        function mostraRelogio(atual){
+            $relogio.textContent = atual;
+        }
+        
+        
+        
+        
+        
+        setInterval(function(){
+            mostraRelogio(pegarHora());
+        }, 1000);
+        
+    })();
+    
+    </script>
+   
+    
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+        <h1>Javascript Completo</h1>
+        
+        <input type="text" id="cronometro">
+        <button id="iniciar">Iniciar</button>
+        <button id="pausar">Pausar</button>
+        <button id="parar">Parar</button>
+        
+        <script>
+            
+            (function(){
+                
+                var $cronometro = document.querySelector('#cronometro');
+                var $iniciar = document.querySelector('#iniciar');
+                var $pausar = document.querySelector('#pausar');
+                var $parar = document.querySelector('#parar');
+                
+                $iniciar.addEventListener('click', iniciar);
+                $pausar.addEventListener('click', pausar);
+                $parar.addEventListener('click', parar);
+                
+                var intervalo = null;
+                var msClickIniciar = 0;
+                var msClickPausar = 0;
+                var msTempoDecorrido = 0;
+                var rodando = false;
+                
+                function iniciar(){
+                    if(rodando) return;
+                    msClickIniciar = Date.now();
+                    iniciarCronometro();
+                    rodando = true;
+                }
+                
+                function pausar(){
+                    if(!$cronometro.value) return;
+                    if(rodando){
+                        clearInterval(intervalo);
+                        msClickPausar = Date.now();
+                        msTempoDecorrido += (msClickPausar - msClickIniciar);
+                    } else {
+                        msClickIniciar = Date.now();
+                        iniciarCronometro(msTempoDecorrido);
+                    }
+                    rodando = !rodando;
+                }
+                
+                function parar(){
+                    msClickPausar = 0;
+                    msClickIniciar = 0;
+                    msTempoDecorrido = 0;
+                    rodando = false;
+                    clearInterval(intervalo);
+                    $cronometro.value = '';
+                }
+                
+                function iniciarCronometro(tempoDecorrido){
+                    var _ms = tempoDecorrido || 0;
+                    intervalo = setInterval(function(){
+                        var msAgora = Date.now();
+                        var diferenca = msAgora - msClickIniciar;
+                        $cronometro.value = formataMs(diferenca + _ms);
+                    }, 100)
+                }
+                
+                
+                /*
+                //USANDO OPERADOR || (OU) COM VARIÁVEIS
+                var o1 =  true || true;     // t || t retorna true
+                var o2 = false || true;     // f || t retorna true
+                var o3 =  true || false;    // t || f retorna true
+                var o4 = false || (3 == 4); // f || f retorna false
+                var o5 = "Gato" || "Cão";   // t || t retorna Gato
+                var o6 = false || "Gato";   // f || t retorna Gato
+                var o7 = "Gato" || false;   // t || f retorna Gato
+                
+                
+                //USANDO OPERADOR && (E) COM VARIÁVEIS
+                var a1 =  true && true;     // t && t retorna true
+                var a2 =  true && false;    // t && f retorna false
+                var a3 = false && true;     // f && t retorna false
+                var a4 = false && (3 == 4); // f && f retorna false
+                var a5 = "Gato" && "Cão";   // t && t retorna Cão
+                var a6 = false && "Gato";   // f && t retorna false
+                var a7 = "Gato" && false;   // t && f retorna false
+                
+                */
+                
+                function formataMs(ms){      
+                    const MINUTO = 60 * 1000;                    
+                    if(ms < 1000) {
+                        return ms;
+                    } else if(ms < MINUTO){     
+                        var s = ms/1000;
+                        s = parseInt(s);    
+                        var c = ms - ( s * 1000); 
+                        return s + ':' + c;
+                    } else {
+                        var m = ms /  MINUTO; 
+                        m = parseInt(m);                         
+                        return m + ":" + formataMs( ms - m * MINUTO );
+                    }
+                    
+                }
+            })();
+            
+        </script>
+    
+</body>
+</html>
