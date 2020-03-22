@@ -6,6 +6,10 @@
 </head>
 <body>
     
+    
+    <button value="Clique aqui" class="eu" onclick="mudaSite()">
+    </button>
+    
     <script>
     
     console.log(innerHeight);
@@ -19,12 +23,73 @@
     //Retorna o tamanho externo do Browser - Height(Altura da janela aberta do navegador)
     console.log(outerWidth);
     //Retorna o tamanho externo do Browser - Width(largura da janela aberta do navegador)
+        
+    //REFERENTES AO BROWSER
     
         
     console.log(pageXOffset);
     //Retorna o quanto o usuário scrollou a página no eixo X(horizontal)
     console.log(pageYOffset);
     //Retorna o quanto o usuário scrollou a página no eixo Y(vertical)
+        
+        
+    console.log(screenX);
+    //Retorna a posição do eixo X da janela em relação ao monitor
+    console.log(screenY);
+    //Retorna a posição do eixo Y da janela em relação ao monitor
+        
+    
+        
+    console.log(history);
+    //Informações relativas ao histórico de navegação       
+    console.log(history.length);
+    ////Retorna por quantas páginas o usuário navegou
+    console.log(history.go(-1));
+    //Volta para a página em que estava antes
+    console.log(history.go(1));
+    //Avança de página
+    console.log(history.back());
+    //Volta a página
+    console.log(history.forward());
+    //Avança de página
+    
+    console.log(location);
+    //Exibe dados da URL em que você está
+    //Sempre que precisar de dados sobre navegação, pesquisar os métodos do "location"
+    console.log(location.href);
+    //Exibe a url em que você está
+    console.log(location.protocol);
+    //Exibe o protocolo de navegação
+    console.log(location.hash);
+    //Exibe o hase
+    console.log(location.port);
+    //Exibe a porta da URL
+    console.log(location.reload());
+    //Recarrega a página
+    console.log(location.assign('http://www.google.com.br'));
+    //abre essa página no navegador. NECESSÁRIO POR O HTTP:// PARA QUE ELE SAIBA QUAL A PORTA. EXEMPLO LOCALHOST://5578
+    console.log(location.replace('http://www.google.com.br'));
+    //Substitui a página atual por essa. NÃO ALTERA O HISTÓRICO(history), ESSA É A DIFERENÇA PARA O ASSIGN
+    console.log(navigator);
+    //Exibe dados do Browser
+    console.log(navigator.userAgent);
+    //Exibe dados de versão do browser, WebKit, etc
+    console.log(navigator.plugins);
+    //Exibe todos os plugins da página
+    console.log(navigator.cookieEnabled);
+    //Mostra se os cookies da página estão habilitados
+        
+    //REFERENTES A TELA DO USUÁRIO
+    console.log(screen);
+    console.log(screen.availHeight);
+    //retorna a altura disponível(SEM CONTAR BARRA DE ROLAGEM)
+    console.log(screen.availWidth);
+    //retorna a largura disponível(SEM CONTAR A BARRA DE ROLAGEM)
+    console.log(screen.height);
+    //retorna a altura que está ocupando no dispositivo do usuário
+    console.log(screen.width);
+    //retorna a largura que está ocupando no dispositivo do usuário
+        
     
     </script>
     
