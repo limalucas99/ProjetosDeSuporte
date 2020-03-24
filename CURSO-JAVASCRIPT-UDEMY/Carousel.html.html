@@ -1,0 +1,358 @@
+    <!DOCTYPE html>
+    <html lang="pt-br">
+
+    <head>
+    <meta charset="UTF-8">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<style>
+    // Mixin itself
+    @mixin clearfix() {
+        &::after {
+            display: block;
+            content: "";
+            clear: both;
+        }
+    }
+
+    // Usage as a mixin
+    .element {
+        @include clearfix;
+    }
+
+
+
+    div#carrinho {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin-top: 0px;
+        margin: auto;
+    }
+
+    div.carousel-item {
+        height: 787px;
+        width: 100%;
+    }
+
+    div#carrinho1 {
+        background-image: url(MATERIAL/IMG/carr1.jpg);
+        background-attachment: scroll;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top;
+    }
+
+    div#carrinho2 {
+        background-image: url(MATERIAL/IMG/carr2.jpg);
+        background-attachment: scroll;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    div#carrinho3 {
+        background-image: url(MATERIAL/IMG/carr3.jpg);
+        background-attachment: scroll;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top;
+    }
+
+    .carousel {
+        margin-top: -63px;
+    }
+
+    body {
+        padding-top: 4rem;
+    }
+
+    .navbar-nav {
+        margin-left: 14px;
+        text-align: center;
+    }
+
+    .ba {
+        width: 2000px;
+        height: 1500px;
+    }
+
+    .nav-link {
+        margin-right: 40px;
+        display: block;
+        color: white;
+    }
+
+    .nav-link:hover {
+        color: white !important;
+    }
+
+    .navbar {
+        padding: 0;
+        /* deixa a navbar sem espaços em branco em volta dela */
+        background-color: black;
+        opacity: 70%;
+        box-shadow: 0 10px 12px rgba(0, 0, 0, .3);
+    }
+
+    .navbar-brand {
+        min-width: 9rem;
+        /* não pode ter uma largura menor que essa */
+        text-align: center;
+        /*tirar navbar-light e bg-light para o bootstrap não sobrescrever meu CSS*/
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+
+        /*Usar f12 no google chrome para saber o que o bootstrap está sobrescrevendo quando algo não funcionar*/
+    }
+
+    .footer {
+        background-color: black;
+        padding: 0%;
+        color: #454e51;
+        width: 100%;
+        margin: 0px;
+        margin-bottom: 0;
+        border-width: 100px !important;
+    }
+
+    body {
+        background-color: white;
+    }
+
+    .jumbotron {
+        background: url(MATERIAL/IMG/busca1.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        /* faz a imagem cobrir o background de maneira mais correta*/
+        background-position: right center;
+        /*centraliza a imagem*/
+        padding: 10rem 2rem;
+        /* aumentando o preenchimento da imagem(fazendo ela ocupar mais espaço) */
+        align-items: center;
+        margin-bottom: 0;
+        /* Para a div subir*/
+        height: 90vh;
+        color: white;
+    }
+
+    .contato {
+        line-height: 35px;
+        text-align: left;
+
+    }
+
+    strong {
+        color: #52d192;
+    }
+
+    #01 {
+        background-image: url(MATERIAL/IMG/carr1.jpg);
+        background-size: cover;
+        background-position: center;
+        height: 100%;
+        width: 100%;
+    }
+
+    #02 {
+        background-image: url(MATERIAL/IMG/carr2.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    #03 {
+        background-image: url(MATERIAL/IMG/carr3.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .table {
+        color: white;
+    }
+
+    .navbar-toggler {
+        color: white;
+    }
+    .btn2{
+        background-color: rgba(255, 255, 255, 1);
+        transform-style: flat;
+        border: transparent;
+        border-radius: 50px;
+        padding: 8px 15px !important;
+        color: gray;
+    }
+    .btn2:hover{
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+    .form-control{
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .mt-2{
+        background-color: rgba(0, 0, 0, 0.3);
+        transform-style: flat;
+        border: transparent;
+        border-radius: 50px;
+        padding-left: 40px !important;
+        padding-right: 40px !important;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        color: white;
+    }
+    .mt-2:hover{
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top" read-only="true">
+        <a class="navbar-brand" href="#">
+            <img src="MATERIAL/SVG/Logo.svg" width="50" height="50" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+            <span class="sr-only"></span> &#9776;
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto mr-5">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Endereço</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contato</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div id="carrinho" class="container-fluid w-100 p-0">
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+            <div class="carousel-inner">
+                <div id="carrinho1" class="carousel-item active">
+                    <div id="quad3-img1" class="quad3"></div>
+                </div>
+                <div id="carrinho2" class="carousel-item">
+                    <div id="quad3-img2" class="quad3">
+                    </div>
+                </div>
+                <div id="carrinho3" class="carousel-item">
+                    <div id="quad3-img3" class="quad3"></div>
+                </div>
+            </div>
+            <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only"></span>
+            </a>
+        </div>
+    </div>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="text-center" style="font-size: 22px; margin-top: -100px !important">Busque seu endereço em poucos passos:</h1>
+            <form class="w-100">
+                <div class="form-row">
+                    <div class="col-4">
+                        <input type="text" class="form-control" placeholder="Digite seu cep " id="cepVal" style="margin-left: 100%">
+                        <button style="margin-left: 130%" class="mt-2" type="button" id="btn">Buscar</button><br/><br/>
+                    </div>
+                    <table class="table table-bordered table-transparent">
+                        <thead>
+                            <tr>
+                                <th scope="col">CEP</th>
+                                <th scope="col">Logradouro</th>
+                                <th scope="col">Bairro</th>
+                                <th scope="col">Localidade</th>
+                                <th scope="col">UF</th>
+                                <th scope="col">GIA</th>
+                                <th scope="col">IBGE</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lista">
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+        </div>
+        <div class="container" style="min-height: 150px !important">
+            <button type="button" class="btn2 btn-info" data-toggle="collapse" data-target="#lista" style="margin-left: 42%">Limpar Resultados</button>
+            <div id="lista" class="collapse">
+                <tbody id="lista"></tbody>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container element-animate" data-animate-effect="fadeInRight">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="MATERIAL/SVG/Logo.svg" class="text-center" style="margin-left: 40%">
+                        <br>
+                        <p class="text-center">&copy;2018 Direitos reservados.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="contato"><strong>Contato</strong><br>
+                            Email: office@example.org<br>
+                            Telefone: (+88) 999.888<br>
+                            Email: 25 Canal St., New York</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p><strong>Siga-nos</strong>
+                            <p>
+                                <img src="MATERIAL/SVG/Facebook.svg" width="40">
+                                <img src="MATERIAL/SVG/Instagram.svg" width="40" class="ml-2 mr-2">
+                                <img src="MATERIAL/SVG/Twitter.svg" width="40">
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="MATERIAL/JS/jquery-3.4.1-COMPLETASSO.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                function desenharNaTela(cep) {
+                    const content =
+                        `                    
+                        <tr>
+                                <td>${cep.cep}</td>
+                                <td>${cep.logradouro}</td>
+                                <td>${cep.bairro}</td>
+                                <td>${cep.localidade}</td>
+                                <td>${cep.uf}</td>
+                                <td>${cep.gia}</td>
+                                <td>${cep.ibge}</td>                         
+                            </tr>                             
+                         `;
+                    var lista = document.getElementById("lista");
+                    lista.innerHTML += content;
+                    console.log(lista);
+                }
+
+                function Cep(cep, logradouro, complemento, bairro, localidade, uf, unidade, ibge, gia) {
+                    this.cep = cep;
+                    this.logradouro = logradouro;
+                    this.complemento = complemento;
+                    this.bairro = bairro;
+                    this.localidade = localidade;
+                    this.uf = uf;
+                    this.unidade = unidade;
+                    this.ibge = ibge;
+                    this.gia = gia;
+                }
+                $("#btn").click(function() {
+                    var cepEscolhido = $("#cepVal").val();
+                    $.ajax({
+                        type: "GET",
+                        url: "https://viacep.com.br/ws/" + cepEscolhido + "/json/",
+                        contentType: "application/json; charset=utf-8",
+                        success: function(json) {
+                            var cep = new Cep(json.cep, json.logradouro, json.complemento, json.bairro,
+                                json.localidade, json.uf, json.unidade, json.ibge, json.gia);
+                            desenharNaTela(cep);
+                        },
+                        error: function(erro) {
+                            console.log(erro);
+                        },
+                    });
+                });
+            });
+        </script>
+</body></html>
