@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    
+    <script>
+    
+    //add(2).add(5).add(10).log().add(20).log();
+    //EXEMPLO DE ENCADEAMENTO
+        
+    var obj = {
+        value: 1,
+        add: function(n){
+            this.value += n;
+            return this;
+        },
+        log: function(){
+            console.log(this.value);
+            return this;
+        }
+        //AO ADICIONAR RETURN THIS, ELE SOMA E RETORNA O PRÓPRIO OBJETO
+        //PERMITE QUE EU FAÇA obj.add(4).add(10).log();
+        //PERMITE FAZER ENCADEAMENTO DE MÉTODOS
+        
+    }
+    
+    function Add(n){
+       this.value = n || 0;
+       //SE NÃO PASSAREM NENHUM PARÂMETRO, INICIALIZA EM 0
+       this.add = function(n){
+           this.value += n;
+           return this;
+       }
+       this.log = function(){
+       console.log(this.value);
+       return this;
+       }
+    }
+        
+    var teste = new Add(0);
+    teste.add(2).add(20).log();
+    console.log(teste)
+        
+   //A IDEIA DO ENCADEAMENTE É FAZER COM QUE O OBJETO RETORNE ELE MESMO
+    
+    </script>
+    
+</head>
+<body>
+   
+   <h1>Curso Js 2018</h1>
+    
+</body>
+</html>

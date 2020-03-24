@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    
+    <script>
+        
+    function teste(){
+        
+    console.log(this);
+    }
+        
+    var teste2= teste.bind(window);
+    
+    document.addEventListener('click', function clicou(){
+        console.log(this);
+        //O THIS É O DOCUMENT
+    }.bind(this));
+    //FAZ O THIS SER O ESCOPO GLOBAL - WINDOW
+    //O BIND MUDA O ESTADO DO THIS PARA WINDOW, SEM VER A FUNÇÃO
+    
+    
+    
+    </script>
+    
+</head>
+<body>
+   
+   <h1>Curso Javascript completo 2018</h1>
+   
+    
+</body>
+</html>

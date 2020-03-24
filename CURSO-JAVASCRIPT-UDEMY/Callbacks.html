@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   
+   
+   <script>
+    
+    
+    function foo(str){
+        console.log('ola',str);
+    }
+       
+    function executa(cb){
+        var ola = 'mundo';
+        if(cb && typeof cb === 'function'){
+            cb(ola);
+        }
+    }
+       
+    executa(foo);
+       
+    //QUANDO USAR CALLBACKS E DER ERRO, O JAVASCRIPT MOSTRA A SEQUÊNCIA DE FUNCÕES EXECUTADAS - FACILITA O DEBUGG
+       
+    document.addEventListener('click',function clicou(e){
+        console.log('clicou');
+        console.log(e);
+    })
+    
+    </script>
+    
+</body>
+</html>

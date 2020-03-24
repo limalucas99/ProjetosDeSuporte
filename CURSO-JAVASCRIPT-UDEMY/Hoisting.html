@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   
+      <h1>Javascript 2018</h1>
+      
+      
+      <script>
+    
+    var nome = 'Lucas';
+    
+    /*
+    function mostraNome(){
+        console.log(nome);
+        var nome = 'Pedrita';
+    }
+    ERRO - NÃO É POSSÍVEL CRIAR E ATRIBUIR NOVAMENTE APÓS PRINTAR - NOME FICARÁ COMO UNDEFINED
+    VARIÁVEIS COM LET NÃO TEM COMPORTAMENTO DE HOST - LET E CONST - ECMASCRIPT6
+    VAR - ESCOPO DE FUNÇÃO
+    LET - ESCOPO DE BLOCO
+    */
+    
+        
+    function mostraNome(){
+        console.log(nome);
+        var nome = 'Pedrita';
+        
+        
+        console.log('-----------')
+        console.log(testeHoisting());
+        
+          function testeHoisting(){
+                return 'funfou';  
+            }
+        //FUNCIONA PORQUE É UMA FUNÇÕA LITERAL
+    }
+          
+          
+  
+          
+          
+    mostraNome();
+    
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    
+    <script>
+    
+    function teste(str, n){
+        console.log('teste',str, n);
+        console.log(this);
+    }
+        
+    teste();
+    //UMA FORMA DE EXECUTAR UMA FUNÇÃO
+      
+    var obj1 = {foo: 'bar'};
+    var obj2 = {foo: 'bar2'};
+        
+        
+    teste.call(obj1, 'minha string', 10);
+    //É NECESSÁRIO PASSAR OS MÉTODOS UM POR UM
+    teste.apply(obj2, ['meu texto',20]);
+    //PEGA OS PARÂMETROS DE UM ARRAY E SEPARA COMO SE TIVESSE SIDOS PASSADOS SEPARADAMENTE
+        
+    //O ESCOPO DE THIS VIRA O QUE FOI PASSADO POR PARÂMETRO
+        
+    </script>
+    
+    
+</head>
+<body>
+    
+</body>
+</html>
