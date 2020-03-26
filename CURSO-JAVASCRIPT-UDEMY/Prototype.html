@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>batata</h1>
+    
+    
+    <script> 
+        
+        //PROTOTYPE - COMPARTILHA PROPRIEDADES E MÉTODOS DE TODAS AS INSTÂNCIAS DE UMA DETERMINADA CLASSE
+        
+        function Animal(tipo){
+            if(tipo) this.tipo = tipo;
+        }
+        
+        function Cachorro(nome, tipo){
+            this.nome = nome;
+            Animal.call(this, tipo);
+            this.constructor = Cachorro;
+        }
+        Cachorro.prototype = new Animal();
+        
+        var toto = new Cachorro('toto', 'mamifero');
+        console.log(toto);
+    
+        Animal.prototype.obterTipo = function(){
+            //TODO ANIMAL QUE FOR INSTANCIADO TERÁ ESSA FUNÇÃO HERDADA
+            return this.tipo;
+        }        
+        Animal.prototype.tipo = 'desconhecido'; 
+        //É PASSADO PARA TODAS AS INSTANCIAS DE ANIMAL - NÃO IMPORTA SE O PROTOTYPE ESTIVER ANTES OU DEPOIS DA INSTANCIA
+        //COM O PROTOTYPE É POSSÍVEL COMPARTILHAR MÉTODOS E OBJETOS POR MEIO DE TODAS AS INSTANCIAS
+
+        var lesma = new Animal();
+        
+        
+        
+            
+    </script>
+    
+</body>
+</html>

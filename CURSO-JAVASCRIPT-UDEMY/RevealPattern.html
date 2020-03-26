@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <script>
+            
+           //module pattern
+            var beluga = {
+                number: {
+                    value: 0,
+                    add: function(n){
+                        this.value += n;
+                    },
+                    log: function(){
+                        console.log(this.value);
+                    }   
+                }
+            }
+            
+            //REVEAL PATTERN
+            
+            var beluga2 = (function(){
+                var n = 0;
+                
+                function isNumber(_n){
+                    return typeof _n === 'number';
+                }
+                
+                function _add(_n){
+                    if(isNumber(_n)){
+                        n += _n;
+                    }
+                }
+                function _log(){
+                    console.log(n);
+                }
+                
+                return {
+                    add: _add,
+                    log: _log
+                }
+                
+                //NÃO TEM ACESSO AO ISNUMBER 
+                //BELUGA 2 NÃO É UMA FUNÇÃO, SOMENTE É ARMAZENADO O RETORNO DA FUNÇÃO
+                
+            })();
+            
+           
+            
+        </script>
+    
+</head>
+<body>
+   
+   <h1>OI</h1>
+    
+</body>
+</html>

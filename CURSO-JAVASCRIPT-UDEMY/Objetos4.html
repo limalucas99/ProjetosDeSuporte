@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   
+   <h1>Olá</h1>
+    
+</body>
+
+<script>
+    
+    var obj1 = {
+        name: 'obj1',
+        log: function(msg){
+            console.log(msg);
+        }
+    }
+    
+    var obj2 = new Object();
+    obj2.name = 'obj2';
+    
+    
+    function Pessoa(nome){
+        this.nome = nome;
+        this.falar = function(msg){
+            console.log(`${this.nome} está falando: ${msg}`);
+        }
+        this.endereco = "Rua batata";
+    }
+    
+    var Lucas = new Pessoa('Lucas');
+    console.log(Lucas.falar('merda'));
+    
+    
+    var Pedrita = Object.create(Lucas); //AO FAZER ISSO A PEDRITA RECEBE TODOS OS ATRIBUTOS COM VALORES QUE O LUCAS POSSUI
+    Pedrita.nome = 'Pedrita';
+    
+    console.log(Pedrita.endereco);
+    
+    console.log('name' in obj1);//VERIFICA SE EXISTE UM ----ATRIBUTO---- EM UM OBJETO
+    
+    
+    var obj3 = {
+        'nome': 'obj3',
+        'valor': 10
+    }
+    
+    
+    var obj4 = Object.create(obj3);
+    obj4.apelido = 'meu objeto';
+    
+    
+    console.log(obj4.apelido);
+    console.log(obj4.nome);
+    
+    obj4.nome = 'obj4';
+    obj4.andar = function(){
+        console.log('andando');
+    }
+    
+    console.log('valor' in obj4); //É TRUE, PORQUE O OBJ4 RECEBEU O OBJ3, RECEBENDO TODOS OS ATRIBUTOS COM VALORES
+    
+    
+    for(var prop in obj4){
+       
+        if(obj4.hasOwnProperty(prop));
+        //verifica se a propriedade pertence ao objeto em si
+        console.log(prop);
+        console.log(obj4[prop]);
+    }
+    
+    const keys = Object.keys(obj4);
+    console.log(keys);
+    
+    keys.forEach((item) =>{
+        console.log('a propriedade é', item)
+    })
+    
+    const values = Object.values(obj4);
+    console.log(values);
+    
+    const entries = Object.entries(obj4);
+    console.log(entries);
+    //RETORNA UM ARRAY DE ARRAYS
+    
+    /*
+    var eu = {
+        nome: nome,
+        sobrenome: sobrenome
+    }*/
+    
+    let eu = { nome, sobrenome} //ECMASCRIPT 6 - SUGAR SINTAX - cria atributo e atribuir valor com o mesmo nome
+    //exatamente igual a linha de cima
+     
+    //SITE BABELJS.IO CONVERTE CÓDIGO JAVASCRIPT PARA CÓDIGO JAVASCRIPT COMPATÍVEL COM NAVEGADORES ANTIGOS
+    
+    </script>
+    
+    
+    
+
+
+</html>

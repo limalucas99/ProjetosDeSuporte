@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+        <h1>Javascript Completo</h1>
+        
+      <script>
+    
+    window.addEventListener('load',function(){
+       console.log('load disparado'); 
+    });
+        
+    window.addEventListener('DOMContentLoaded',function(){
+       //É EXECUTADO QUANDO A ESTRUTURA DO HTML TIVER SIDO CARREGADA, NÃO SÃO INCLUIDOS IMAGENS E VÍDEOS
+       //USAR ISSO NO FINES REPORT
+       console.log('DOMContentLoaded disparado'); 
+    });
+        
+    window.addEventListener('resize',function(e){
+       console.log('resize disparado');
+       console.log(e);
+    });
+        
+     window.addEventListener('scroll',function(e){
+       console.log('scroll disparado');
+       console.log(e);
+       console.log('scroll Y',pageYOffset);
+    });
+    
+        
+    //EXECUTADOS QUANDO O USUÁRIO CLICA NO BOTÃO PARA FECHAR A PÁGINA
+        
+     window.addEventListener('unload',function(){
+       console.log('unload disparado');
+       debugger;
+    });
+        
+        
+    window.addEventListener('beforeunload',function(){
+       console.log('beforeunload disparado');
+       debugger;
+    });
+        
+    //---------------------------------------------------------------
+        
+    
+    
+    </script>
+    
+</body>
+</html>

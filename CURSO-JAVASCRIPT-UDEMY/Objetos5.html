@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   
+   
+   <h1>Olá</h1>
+   
+   
+   
+   <script>
+                
+        const alunos = [
+            {"_id": 1, "nome": "Daniel"},
+            {"_id": 2, "nome": "Maria"},
+            {"_id": 3, "nome": "José"},
+            {"_id": 4, "nome": "João"}
+        ];
+        
+        const faltas = [
+            {"_idAluno": 1, faltas: 5},
+            {"_idAluno": 2, faltas: 11},
+            {"_idAluno": 3, faltas: 0},
+            {"_idAluno": 4, faltas: 15}
+        ];
+        
+        debugger;
+        const reprovadosPorFalta = faltas
+                .filter( falta => falta.faltas > 10 ) //CASO TIVESSE MAIS DE UMA LINHA, SERIA NECESSÁRIO ESCREVER RETURN E COLOCAR CHAVES
+                 //FILTER RETORNA UM ARRAY FILTRADO - MAP MODIFICA O ARRAY, O TRANSFORMANDO EM OUTRO
+                //O NOME FALTA É UM NOME ALEATÓRIO, IGUAL NO FOR EACH DO JAVA, C#, ETC
+                //PEGA SOMENTE AS LINHAS COM MAIS DE 10 FALTAS - SE FOR TRUE, O MAP RETORNA
+                .map( falta => falta._idAluno )
+                //PASSA POR TODAS AS LINHAS PARA VERIFICAR
+                //PEGA OS IDs DOS ALUNOS COM MAIS DE 10 FALTAS
+                //MÉTODO FILTER SEMPRE RETORNA UM ARRAY
+                .map( idAluno => alunos.filter( aluno => aluno._id === idAluno )[0].nome )
+                //--NESSE CASO O "idAluno' é o array retornado pelo primeiro map
+                //PASSA POR CADA UM DOS IDs filtrados
+        
+        console.table(reprovadosPorFalta)
+        
+            
+    </script>
+    
+</body>
+</html>
