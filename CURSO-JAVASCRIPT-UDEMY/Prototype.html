@@ -21,6 +21,7 @@
             this.nome = nome;
             Animal.call(this, tipo);
             this.constructor = Cachorro;
+            //se não for informado o construtor, ele atribui o construtor do último proptotype, não do correto
         }
         Cachorro.prototype = new Animal();
         
@@ -37,7 +38,10 @@
 
         var lesma = new Animal();
         
+        console.log(Animal.prototype.isPrototypeOf(toto));
+        cosole.log(object.getPrototypeOf(toto));
         
+        console.log(toto instanceof Animal);
         
             
     </script>

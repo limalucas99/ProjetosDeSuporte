@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   
+   <script>
+    
+     String.prototype.replaceAll = function(busca, troca){
+         
+         console.log(this.valueOf());
+         var str = this.valueOf();
+         return str.split(busca).join(troca);
+         //Split quebra uma string e transforma em uma array, Join junta o array transformando em uma string, os separando utilizando o parâmetro troca
+         
+     }
+     
+     
+     var dom = documento.querySelectorAll('p');
+     Array.prototype.forEach.call(dom, (p) => console.log(p));
+    
+    </script>
+    
+</body>
+</html>
