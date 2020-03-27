@@ -12,7 +12,63 @@
    
    <script>
     
-    
+    class Aluno{
+        constructor(nome){
+            this.nome = nome;
+            this._faltas = 0;
+        }
+        
+        adicionarFaltas(){
+            console.log(`adicionada uma falta para o aluno ${this.nome}`);
+            this._faltas++;
+        }
+        
+    }
+       
+    var aluno1 = new Aluno('lucas');
+    aluno1.adicionarFaltas();
+    console.log(aluno1);
+       
+       
+    class listaAlunos{
+        constructor(_lista){
+            this.lista = [].concat(_lista);
+            //PODE PASSAR UMA LISTA OU NÃO
+        }
+        
+        obterAluno(nome){
+            return this.lista.filter( aluno => aluno.nome === nome)[0];
+            //retorna o primeiro indice do array que tenha o nome igual o que foi passar por parâmetro
+        }
+        
+        
+        obterAlunosReprovadosPorFaltas(){
+            var faltasPermitidas = listaAlunos.faltasPermitidas;
+            return this.lista.filter(aluno => aluno._faltas >= faltasPermitidas);
+        }
+        
+        static get faltasPermitidas(){
+            return 5;
+        }
+        
+    }
+       
+       var alunos = ['Pedrita','Lucas','Juca'].map(aluno => new Aluno(aluno));
+       //PARA CADA ALUNO DO ARRAY ESTÁ SENDO FEITA UMA ITERAÇÃO, INSTANCIANDO UM OBJETO DE CADA ITEM DO VETOR
+       
+       console.log(alunos);
+       
+       
+       var listaAlunos = new listaAlunos(alunos);
+       
+       listaAlunos.lista[0]._faltas = 6;
+       listaAlunos.lista[2]._faltas = 8;
+       
+       console.log(lista);
+       
+       console.log(listaAlunos.obterAluno('Lucas'));
+       console.log(listaAlunos.faltasPermitidas);
+       
     
     </script>
    
