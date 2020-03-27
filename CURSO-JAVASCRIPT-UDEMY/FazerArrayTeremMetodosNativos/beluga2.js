@@ -25,6 +25,7 @@ var blg = (function(){
     
     function _each(sel, fn){
         var _sel = this.$$(sel);
+        //this é o proprio beluga
         Array.prototype.forEach.call(_sel, fn)
     }
     beluga.each = _each;

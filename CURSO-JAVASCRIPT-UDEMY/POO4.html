@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+        <h1>Curso Javascript Completo 2018</h1>      
+        
+    
+    
+    <script>
+        
+        class ContaBancaria{
+            constructor(cliente, numero){
+                this.cliente = cliente;
+                this.numero = numero;
+                this.saldo = 0;
+            }
+            
+            depositar(valor){
+                this.saldo += valor;
+            }
+        }
+        
+        class ContaCorrente extends ContaBancaria{
+            constructor(cliente, numero){
+                super(cliente, numero);
+                this.limite = 1000;
+                
+            }
+          
+            
+            static get juros() { return 15; };
+            //JUROS AGORA FAZ PARTE DA CONTA CORRENTE E NÃO DAS INSTANCIAS
+            
+            static verTipo(){
+                return 'tipo conta corrente';
+            }
+            
+        }
+        
+          ContaCorrente.juros = 15;
+          //NÃO FAZ PARTE DA INSTANCIA
+          ContaCorrente.prototype.teste = 'testando prototype';
+          //FAZ PARTE DA INSTANCIA
+        
+        //CÓDIGO DEVE SER COLOCADO FORA DA FUNÇÃO PARA EVITAR ERROS
+        
+        
+        class ContaPoupanca extends ContaBancaria{
+            
+            constructor(cliente, numero){
+                super(cliente, numero);
+                //this._aniversario = new Date().getTime();
+                this._aniversario = {};
+                Object.defineProperty(this._aniversario, 'data', {
+                    enumerable: false,
+                    writable: false,
+                    value: new Date().getTime()
+                })
+            }
+                                
+            get aniversario(){ 
+                return this._aniversario; 
+            }
+            
+            set aniversario(novaData){ }
+                        
+        }
+        
+        var cp = new ContaPoupanca('maria', 2);
+        var cc = new ContaCorrente('daniel', 3);
+            
+    </script>
+</body>
+</html>

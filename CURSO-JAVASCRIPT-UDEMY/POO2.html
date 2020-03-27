@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+     <h1>NO JAVASCRIPT, UMA CLASSE SEMPRE É UMA FUNÇÃO</h1>
+     
+     
+     
+     
+     <script>
+         
+       /*  
+        function ContaBancaria(cliente, numero){
+        this.cliente = cliente;
+        this.numero = numero;
+        }
+         
+        function ContaCorrente(cliente, numero){
+            //SEMPRE QUE INSTANCIADO HERDA DE OBJECT()
+            //ContaBancaria.call(this, cliente, numero);
+            //this.constructor = ContaCorrente;
+            //Diz que meu constructor é a própria conta corrente
+        }
+         
+         
+         //let cc = new ContaCorrente('daniel',1);
+         let cc = new ContaCorrente();
+         let cb = new ContaBancaria('daniel',1)
+         //Object.setPrototypeOf(cc, ContaBancaria);
+         Object.setPrototypeOf(cc, cb);
+         console.log(cc);
+         //IGUAL EXTENDS DO JAVA
+        
+        //ContaCorrente.prototype = new ContaBancaria(cliente, numero);
+        //SEMPRE QUE UMA CONTA CORRENTE FOR INSTANCIADA, ELA HERDA DE CONTA BANCÁRIA
+    
+         
+         //DIFERENÇA ENTRE BUTTON SUBMIT E INPUT TYPE SUBMIT. COM INPUT TYPE SUBMIT, O USUÁRIO PODE SUBMETER O FORMULÁRIO APERTANDO ENTER
+         
+         */
+       
+         
+          /* 
+         class ContaBancaria{
+             constructor(cliente, numero){
+               this.cliente = cliente;
+               this.numero = numero;
+               this.saldo = 0;
+             }
+             
+             depositar(valor){
+                this.salod += valor;
+            }
+         }
+         
+         class ContaCorrente extends ContaBancaria{
+             //herda de Conta Bancária
+            constructor(cliente, numero){
+                super(cliente, numero);
+                this.limite = 1000;
+                //IGUAL NO JAVA, CHAMA O CONSTRUCTOR DA CLASSE PAI
+            }           
+         }
+         
+       class ContaPoupanca extends ContaBancaria{
+             constructor(cliente, numero){
+                 super(cliente, numero);
+                 this.aniversario = new Date();
+             }
+         }
+         
+         let cc = new ContaCorrente('daniel',2);
+         
+         cc.depositar(1000);
+         console.log(cc.saldo);
+         
+         let cp = new ContaPoupanca('maria',3);
+         console.log(cp.aniversario); */
+         
+         
+          function ContaBancaria(cliente, numero){
+        this.cliente = cliente;
+        this.numero = numero;
+        }
+         
+         
+        function ContaCorrente(cliente, numero){
+            
+        }
+         
+         
+        
+         function ContaPoupanca(cliente, numero){
+             ContaBancaria.call(this, cliente, numero);
+             
+             //PRIVADO
+             const aniversario = new Date().getTime();//RETORNA UM TIMESTAMP, QUE NÃO É UM OBJETO
+             //const aniversario = new Date();
+             //NUNCA ARMAZENAR OBJETOS EM ATRIBUTOS QUE DEVEM SER PRIVADOS
+             //Não pode ser modificada diretamente porque é const
+             
+             //É IGUAL UM MÉTODO GETTER DO JAVA, SÓ É POSSÍVEL PEGAR O ATRIBUTO aniversario POR ELE
+             //PUBLICO
+             this.pegaNiver = function(){
+                 return aniversario;
+             }
+             
+         }
+         var cp = new ContaPoupanca('Pedrita', 4);
+         Object.setPrototypeOf(cp, new ContaBancaria());
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+    
+    </script>
+    
+    
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   
+   <h1>NO JAVASCRIPT, UMA CLASSE SEMPRE É UMA FUNÇÃO</h1>
+   
+   
+   <script>
+       
+  
+    //ES5
+    function ContaCorrente(cliente, numero){
+        //FAZ A MESMA VERIFICAÇÃO QUE O IF ABAIXO, PORÉM NÃO EXIBE MENSAGEM INTUITIVA
+        //'use strict';
+        if(this instanceof ContaCorrente){
+          this.cliente = cliente;
+          this.numero = numero;   
+        }
+        else{
+          // throw new Error('Conta corrente só pode ser utilizada usando o operador new');
+        return new ContaCorrente(cliente, numero);
+        //Não dará mais erro, mesmo que não seja instanciada a classe na chamada, ela será instanciada quando cair no else
+        }
+    }
+    
+    //ES6 - VAI VIRAR UMA FUNÇÃO
+    class ContaPoupanca{
+        
+        constructor(cliente,numero){
+            //CHAMADO AO INSTANCIAR A CLASSE
+            this.cliente = cliente;
+            this.numero = numero;
+            
+        }
+        //É NECESSÁRIO TER   
+    }
+       
+    //OS DOIS CÓDIGOS FAZEM A MESMA COISA
+       
+    
+    </script>
+    
+</body>
+</html>
