@@ -1,7 +1,7 @@
 class Aluno {
-    constructor(nome){
+    constructor(nome, notas){
         this.nome = nome;
-        this._notas = [];
+        this._notas = (notas) ? [].concat(notas) : [];
         this._id = ++Aluno.id;
     }
     
@@ -11,6 +11,7 @@ class Aluno {
     
     atualizarNotas(arr){
         this._notas = [].concat(arr);
+        //PARA QUE ALGUÉM NÃO CONSIGA ALTERAR DE FORA, CRIA UMA CÓPIA
     }
     
     recuperarMedia(){
