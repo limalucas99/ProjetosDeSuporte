@@ -1,3 +1,15 @@
+import { Aluno } from './Model/AlunoModel.js';
+import { ListaAlunos } from './Model/ListaAlunosModel.js';
+import { ListaAlunosView } from './View/ListaAlunosView.js';
+import { FormAdicionarAlunoView } from './View/FormAdicionarAlunoView.js';
+import { FormBuscarAlunoView } from './View/FormBuscarAlunoView.js';
+import { ListaAlunosController } from './Controller/ListaAlunosController.js';
+import { FormAdicionarAlunoController } from './Controller/FormAdicionarAlunoController.js';
+import { FormBuscarAlunoController } from './Controller/FormBuscarAlunoController.js';
+import { blg } from '../beluga2.js';
+
+//SINTAXE PARA IMPORTAR - import {NOMEDACLASSE} from 'CAMINHO';
+
 var alunos = ["Daniel", "Maria", "Jose"];
 alunos = alunos.map( aluno => new Aluno(aluno) );
 

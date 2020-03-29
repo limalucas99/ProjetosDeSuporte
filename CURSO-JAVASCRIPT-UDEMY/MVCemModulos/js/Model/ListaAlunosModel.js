@@ -1,4 +1,5 @@
-class ListaAlunos{
+export class ListaAlunos{
+    //PERMITE QUE A CLASSE SEJA IMPORTADA EM OUTROS ARQUIVOS .js
     constructor(_lista){
         this.lista = [].concat(_lista);
     }

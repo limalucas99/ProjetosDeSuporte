@@ -1,4 +1,6 @@
-class ListaAlunosController{
+import { Aluno } from '../Model/AlunoModel.js';
+export class ListaAlunosController{
+    //PERMITE QUE A CLASSE SEJA IMPORTADA EM OUTROS ARQUIVOS .js
     constructor(model, view){
         this.model = model;
         this.view = view;

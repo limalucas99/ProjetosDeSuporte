@@ -1,4 +1,6 @@
-class Aluno {
+import { blg } from '../../beluga2.js';
+export class Aluno {
+//PERMITE QUE A CLASSE SEJA IMPORTADA EM OUTROS ARQUIVOS .js
     constructor(nome, notas){
         this.nome = nome;
         this._notas = (notas) ? [].concat(notas) : [];        

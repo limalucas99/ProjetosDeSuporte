@@ -1,4 +1,6 @@
-class ListaAlunosView extends View{
+import { View } from './View.js';
+export class ListaAlunosView extends View{
+    //PERMITE QUE A CLASSE SEJA IMPORTADA EM OUTROS ARQUIVOS .js
     constructor(seletor){
         super(seletor);
     }
