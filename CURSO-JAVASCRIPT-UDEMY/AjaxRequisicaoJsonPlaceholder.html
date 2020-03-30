@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   
+   <h1>AJAX</h1>
+   
+   <dl id="lista-usuarios">
+      
+   </dl>
+   
+   <script>
+       
+       //dl - data list / dt - data term / dd- data description
+    
+      let xhr = new XMLHttpRequest();
+      let url = "https://jsonplaceholder.typicode.com/users/";
+      const $listaUsuarios = document.querySelector('#lista-usuarios');
+       
+       xhr.open("GET", url);
+       //É NECESSÁRIO DAR UM OPEN, PASSANDO O VERBO E PASSANDO O CAMINHO DE ONDE ESTÁ O ARQUIVO
+       xhr.send(null);
+       //PASSANDO NULL PORQUE NÃO VOU ENVIAR NADA
+       xhr.onreadystatechange = verificaAjax;
+       //EXECUTADA SEMPRE QUE O ESTADO MUDA
+       
+     
+       
+       function verificaAjax(){
+           console.log(xhr.readyState);
+           console.log(xhr.status);
+           
+           if(xhr.readyState === 4){
+               if(xhr.status === 200 || xhr.status === 304){                  
+                   let resposta = xhr.responseText;
+                   resposta = JSON.parse(resposta);
+                   
+                   mostraUsuarios(resposta);
+                   
+               }
+               else{
+                   alert('Deu ruim na resposta');
+                   console.log(xhr);
+               }
+           }
+       }
+       
+       
+       function mostraUsuarios(usuarios){
+             console.time('DOM'); //COMEÇA A CONTAR
+             const fragmento = document.createDocumentFragment();
+             //É COMO SE FOSSE UM DOM, RESERVADO NA MEMÓRIA PARA QUE POSSA TRABALHAR COM ELE
+              //O QUE FOR FEITO NO FRAGMENTO NÃO É ALTERADO NA PÁGINA
+             usuarios.forEach( usuario => {
+             adicionarElemento(fragmento, 'dt', usuario.name);             
+             adicionarElemento(fragmento, 'dd', usuario.email, usuario.phone, usuario.website);                       
+           })
+           $listaUsuarios.appendChild(fragmento);
+           //atribui o fragmento ao atributo que deveria estar naquele lugar
+           console.timeEnd('DOM'); //FINALIZA A CONTAGEM - EXIBE QUANTO TEMPO DEMOROU PARA EXECUTAR A AÇÃO
+           //DEVE TER O MESMO NOME DO INICIO
+       }
+       
+       
+       //UTILIZANDO SPREAD OPERATOR PARA PODER PASSAR MAIS DE UM VALOR (ESTILO VAR ARGS)
+       function adicionarElemento(container, tag, ...text){
+           [...text].forEach( str => { //CADA text que existe em [...text] é um str
+                //...text SIGNIFICA QUE PODE SER PASSADO VÁRIOS VALORES, EXEMPLO UM ARRAY, E TRATA CADA UM INDIVIDUALMENTE FAZENDO UMA ITERAÇÃO
+                let _tag = document.createElement(tag);
+                let _textNode = document.createTextNode(str);
+                _tag.appendChild(_textNode);
+                container.appendChild(_tag);
+           });
+       }
+       
+       //SÓ É POSSÍVEL ACESSAR POR ALGUM SERVIDOR, PORQUE É NECESSÁRIO UTILIZAR O PROTOCOLO HTTP: EXEMPLO: LIVEPREVIEW DO BRACKETS
+       //JSON NÃO TRANSPORTA OS DADOS EFETIVAMENTE, TRANSPORTA UMA STRING QUE REPRESENTA OS DADOS
+       //SÓ É POSSÍVEL PASSAR STRING, NUMERO E BOOLEANO VIA JSON
+       
+       //TRABALHAR COM DOM É MUITO CUSTOSO, PODE DAR MUITOS PROBLEMAS DE PERFORMANCE
+       //O BROWSER PRECISA FICAR RECALCULANDO PARA MOSTRA NA TELA OS ELEMENTOS
+       
+       //QUANTO MENOS MANIPULAR O QUE ESTÁ SENDO EXIBIDO NA TELA, MAIS PERFORMANCE VOCê TEM
+     
+    </script>
+    
+</body>
+</html>

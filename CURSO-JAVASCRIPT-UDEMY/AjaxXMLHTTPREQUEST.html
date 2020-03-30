@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   
+   <h1>AJAX</h1>
+   
+   
+   <script>
+    
+      let xhr = new XMLHttpRequest();
+       
+       xhr.open("GET", "alunos.json");
+       //É NECESSÁRIO DAR UM OPEN, PASSANDO O VERBO E PASSANDO O CAMINHO DE ONDE ESTÁ O ARQUIVO
+       xhr.send(null);
+       //PASSANDO NULL PORQUE NÃO VOU ENVIAR NADA
+       xhr.onreadystatechange = verificaAjax;
+       //EXECUTADA SEMPRE QUE O ESTADO MUDA
+       
+       var resposta;
+       
+       function verificaAjax(){
+           console.log(xhr.readyState);
+           console.log(xhr.status);
+           
+           if(xhr.readyState === 4){
+               alert('sucesso na requisição');
+               if(xhr.status === 200 || xhr.status === 304){
+                   //IGUAL A 304 SIGNIFICA QUE A RESPOSTA ESTÁ NO CACHE(UTILIZAR PARA OTIMIZAÇÃO DE PROCESSAMENTO)
+                   console.log(xhr.responseText);
+                   //RETORNA O JSON
+                   resposta = xhr.responseText;
+                   console.log(resposta[0]);//NÃO FUNCIONA
+                   //O JSON NÃO É O DADO EM SI, É UMA STRING QUE REPRESENTA OS DADOS
+                   //TYPE OF RESPOSTA === STRING - E NÃO ARRAY
+                   //JSON.parse(resposta);
+                   //CONVERTE A STRING DE RESPOSTA DO JSON PARA UM ARRAY
+                   //JSON.parse(resposta)[0];
+                   //PEGA O PRIMEIRO ELEMENTO APÓS CONVERTER JSON PARA ARRAY
+                   //JSON.stringify({lala: "oioi"});
+                   //TRANSFORMA EM JSON, NÃO É NECESSÁRIO POR AS ASPAS NO NOME DOS ATRIBUTOS, PORQUE ELE COLOCA AUTOMATICAMENTE
+                   
+                   resposta = JSON.parse(resposta);
+                   console.log(resposta[0]);
+                   
+               }
+               else{
+                   alert('Deu ruim na resposta');
+                   console.log(xhr);
+               }
+           }
+       }
+       
+       //SÓ É POSSÍVEL ACESSAR POR ALGUM SERVIDOR, PORQUE É NECESSÁRIO UTILIZAR O PROTOCOLO HTTP: EXEMPLO: LIVEPREVIEW DO BRACKETS
+       //JSON NÃO TRANSPORTA OS DADOS EFETIVAMENTE, TRANSPORTA UMA STRING QUE REPRESENTA OS DADOS
+       //SÓ É POSSÍVEL PASSAR STRING, NUMERO E BOOLEANO VIA JSON
+       
+     
+    </script>
+    
+</body>
+</html>

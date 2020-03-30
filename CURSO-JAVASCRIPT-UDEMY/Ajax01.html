@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   
+   <h1>AJAX</h1>
+   
+   
+   <script>
+    
+       setTimeout( function(){
+           console.log('1');
+       }, 0);
+       console.log('2'); //FOI EXECUTADO PRIMEIRO, PORQUE O setTimeout tem natureza assíncrona
+    
+     const alunos = [
+         {
+         "nome": "daniel",
+         "notas": [1,5,8,10]
+        },
+         {
+         "nome": "maria",
+         "notas": [10,5,8,10]
+        }
+     ]
+     
+     //SEMPRE UTILIZAR ASPAS DUPLAS COM JSON. PODE DAR PROBLEMA EM INTERNET EXPLORER C ASPAS SIMPLES. NUNCA POR VÍRGULA NO ULTIMO OBJETO
+       
+     
+     //código 304 - NÃO SOFREU ALTERAÇÕES DESDE A ÚLTIMA BUSCA
+     //código 200 - DEU TUDO CERTO
+     //código 404 - DEU ERRO, NÃO FOI POSSÍVEL ENCONTRAR O RECURSO
+     
+     //REQUEST - URI + verbo
+     //RESPONSE - code + body
+     
+    </script>
+    
+</body>
+</html>
