@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+        var n = new Number('10')
+        var str = new String('teste')
+        
+        console.log(Number.MAX_VALUE);
+        console.log(Number.MIN_VALUE);
+        
+        var n2 = 12345.6789;
+        n.toFixed(2);
+        //Formata o número para duas casas decimais
+        //igual %.2f da linguagem C
+        
+        var n3 = 12.345;
+        console.log(n.toPrecision(2));
+        //Exibe somente os 2 primeiros dígitos do número: 12
+        console.log(n.toPrecision(3));
+        //Exibe somente os 3 primeiros dígitos do número: 12.3
+        console.log(n.toString());
+        //Retorna o número em string
+        console.log(n.toString(2));
+        //Retorna o número em binário
+        console.log(n.toString(16));
+        //Retorna o número em hexadecimal
+    
+    </script>
+</body>
+</html>
