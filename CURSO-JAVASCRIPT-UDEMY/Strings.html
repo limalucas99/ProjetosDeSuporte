@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    var teste = "minha string bonita";
+        
+    //Métodos da String    
+        
+    console.log(teste.length)
+    console.log(teste.replace('i','I'))
+    console.log(teste.replace(/i/g, 'I'))
+    console.log(teste.indexOf(' '))
+    //indexOf - Retorna a primeira posição da string buscada
+    console.log(teste.lastIndexOf(' '));
+    //lastIndexOf - retorna a ultima posição da string buscada
+    console.log(teste.slice(5));
+    //Corta a string a partir da posição 5
+    console.log(teste.slice(5,10));
+    //Retorna da posição 5 até a posição 10
+    console.log(teste.substring(10, 5));
+    //Retorna da posição 10 até a posição 5, nãoa é possível com Slice
+    console.log(teste.split(' '))
+    //separa a string onde tem o caractere informado, retornando sempre um
+    //Array com os pedaços da string. Não retorna o caractere informado
+    console.log(teste.toUpperCase());   
+    console.log(teste.toLowerCase());
+    console.log(teste.valueOf());
+        
+    var nome = "Lucas Lima do Carmo";
+        
+    var nomeFormatado = formatarNome(nome);
+    
+   
+        function formatarNome(nome){
+          var posicaoUltimoEspaco = nome.lastIndexOf(' ');
+          if(posicaoUltimoEspaco <= 0){
+          //Se retornar -1, significa q n encontrou nenhum espaço na string
+          //Se retornar 0, significa q a String é só um espaço
+              return nome;
+          }
+            
+           var ultimoNome = nome.slice(posicaoUltimoEspaco + 1);
+           console.log('ultimoNome', ultimoNome);
+           
+            
+            var primeiroNome = nome.slice(0, posicaoUltimoEspaco);
+            console.log('posicaoUltimoEspaco', posicaoUltimoEspaco);
+            
+            return primeiroNome +', ' +ultimoNome;
+            
+        }
+    
+        console.log(nomeFormatado);
+        
+    
+    </script>
+    
+    <h1>Curso Javascript Completo 2018</h1>
+    
+    
+</body>
+</html>

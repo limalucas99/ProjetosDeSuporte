@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+    
+    function sortear(n){
+        var _n = n || 1;
+        var nSorteado = Math.random();
+        //pega um número aleatório
+        nSorteado = nSorteado * _n;
+        //sorteia um número aleatório até o escolhido
+        //Ex: N = 10; números de 0 até 9
+        nSorteado = Math.floor(nSorteado);
+        //Arredonda para baixo para não mostra os decimais
+        return nSorteado;
+        
+        
+    }
+    
+    </script>
+    
+</body>
+</html>
