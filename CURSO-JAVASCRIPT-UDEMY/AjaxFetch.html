@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <!-- getConfig -> config.language -> getLabels -> labels -> getUser -->
+    
+</head>
+<body>
+   
+   <h1>AJAX</h1>
+   
+   <dl id="lista-usuarios">
+      
+   </dl>
+   
+   <script>
+       
+     
+        
+        const $listaUsuarios = document.querySelector('#lista-usuarios');
+        
+        function getUser(id){
+                let url = `https://jsonplaceholder.typicode.com/users/${id}`;
+                return fetch(url) //fetch RETORNA SEMPRE UMA PROMISE
+                .then( resposta => {
+                    console.log(resposta);
+                    if(!resposta.ok){
+                       throw new Error('arquivo não existe'); 
+                    }
+                    return resposta;
+                })
+            .then(r=>{
+                    console.log();
+                    let json = r.json();
+                    return json;
+                })
+                
+        }
+        
+        function mostraUsuarios(usuario){   
+            adicionarElemento($listaUsuarios, 'dt', usuario.id);
+            adicionarElemento($listaUsuarios, 'dd', usuario.name, usuario.email, usuario.phone, usuario. website);  
+        }
+        
+    
+        function adicionarElemento(container, tag, ...text){
+            
+            [...text].forEach( str => {
+                let _tag = document.createElement(tag);
+                let _textNode = document.createTextNode(str);
+                _tag.appendChild(_textNode);
+                container.appendChild(_tag);
+                
+            } )
+        }
+        
+        
+        getUser(1)
+            .then( resposta => {
+            //.then EXECUTA UMA FUNÇÃO QUANDO A RESPOSTA DA REQUISIÇÃO ASSÍNCRONA ESTIVER PRONTA
+            //.then É CHAMADO PELO RESOLVE
+                console.log(resposta);
+                mostraUsuarios(resposta);
+                return getUser(2);
+            } )
+       .then( resposta => {
+             console.log(resposta);
+             mostraUsuarios(resposta);
+        })
+            .catch( err => {
+            console.log('---erro');
+            console.log(err.message);           
+               })
+            //.catch É CHAMADO PELO REJECT
+        
+    
+        
+        
+    
+   
+    </script>
+    
+</body>
+</html>
