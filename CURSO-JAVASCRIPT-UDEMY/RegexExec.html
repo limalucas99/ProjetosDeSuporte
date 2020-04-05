@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <script src="MVC/beluga2.js"></script>
+  
+    
+</head>
+<body>
+    
+    <h1>Curso JS</h1>
+    
+   
+   
+    
+</body>
+
+ <script>
+
+
+var str = 'o pato chato tem sapato de gato';
+    var regex = /([gp]|ch)ato/g; 
+    var arr;
+    
+    while( arr = regex.exec(str) ){
+    //Exec vai percorrendo a string pegando todos os casos q possuem regex
+        var msg = "Encontrei " + arr[0] + ' em ' + arr.index + '. ';
+        //arr.index é a posição
+        msg += "Próximo comeca em " + regex.lastIndex;
+        //lastIndex mostra o indice do prox item encontrado pelo regex
+        console.log(msg);
+    }
+    
+
+
+
+</script>
+</html>

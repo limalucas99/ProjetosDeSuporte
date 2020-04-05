@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <script src="MVC/beluga2.js"></script>
+    
+    <style>
+        
+        #btn{
+            background-color: green;
+            height: 20px;
+            width: 100px;
+        }
+    
+        #btn[disabled]{
+            opacity: .5;
+            background-color: red;
+        }
+    
+    </style>
+    
+</head>
+<body>
+    
+    <h1>Curso JS</h1>
+    
+   
+   
+    
+</body>
+
+ <script>
+
+
+(function(){
+
+var str = 'hoje é 26/02/2018 e amanha será 27/02/18. Meu aniversario é 1/01';
+var meses = [ 'jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
+    
+    function formatData(str){
+        
+        var regex = /(\d{1,2})\/(\d{1,2})(?:\/(\d{2,4}))?/g;
+        
+        //?: - non capturing group - grupo q não é capturado
+        return str.replace(regex, function(a,b,c,d,e,f){
+        //debugger;
+        //debugger para ver o que os parametros recebem
+        //é possível passar para o replace um regex e uma function   
+            var dia = b + ' de ' + meses[parseInt(c) - 1];
+            dia += (d) ? ' de ' + d : '';
+            return dia;
+        })
+    }
+    
+    str = formatData(str)
+    
+    console.log(str);
+
+})();
+   
+ </script>
+
+</html>

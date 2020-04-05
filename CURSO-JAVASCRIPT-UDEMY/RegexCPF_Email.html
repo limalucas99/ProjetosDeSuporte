@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <script src="MVC/beluga2.js"></script>
+    
+    <style>
+        
+        #btn{
+            background-color: green;
+            height: 20px;
+            width: 100px;
+        }
+    
+        #btn[disabled]{
+            opacity: .5;
+            background-color: red;
+        }
+    
+    </style>
+    
+</head>
+<body>
+    
+    <h1>Curso JS</h1>
+    
+    <input type="text" id="text">
+    <button id="btn" disabled="disable">Validar</button>
+    
+   
+    
+</body>
+
+ <script>
+ 
+
+  (function(){
+   var $text = blg.$('#text');
+   var $btn = blg.$('#btn');
+     
+   var padraoCPF = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+   var padraoEmail = /^[\w._-]+@[\w_.-]+\.[\w]{3,}/i;
+   //COLOCAR O a flag "g" no final, vai fzr dar merda
+    
+   $text.addEventListener('input', function(){
+       var texto = this.value;
+       $btn.disabled = !(padraoCPF.test(texto) || padraoEmail.test(texto));
+   })
+     
+   })();
+     
+   
+ </script>
+
+</html>
