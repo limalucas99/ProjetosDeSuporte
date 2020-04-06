@@ -86,15 +86,18 @@
             //seleciona o parágrafo que contém a tag <i>
             
             $('p:parent').css('backgroundColor','yellow');
-            //pinta qualquer parágrafo que seja pai de algum elemento(que não esteja vazio, tenha contepudo dentro dele, ex: texto)
+            //pinta qualquer parágrafo que seja pai de algum elemento(que não esteja vazio, tenha conteudo dentro dele, ex: texto)
             $('p:empty').text('paragrafo estava vazio');
             //escreve dentro de um <p> vazio
             $('p:hidden').show()
+            //exibe os p escondidos
             $(':hidden:not(script)').show()
             
             $('body:hidden:not(script)').after('----')
+            //pega tudo do body que está hidden e não é script
             
             $('body :visible').css('border','1px solid blue');
+            //pega tudo do body que está visible
           
             $('li:only-child').css('fontSize', '30px');
             // Pega as <li> que só tem um filho

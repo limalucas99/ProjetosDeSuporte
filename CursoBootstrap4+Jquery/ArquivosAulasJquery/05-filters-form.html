@@ -69,6 +69,7 @@
     
     <script>
         $(function(){
+        //PEGANDO INPUTS DE DIVERSOS TIPOS
           $(':input').css('backgroundColor','gray');
           $(':text').css('backgroundColor','#ccc');
           $(':password').css('backgroundColor','#ccc');
@@ -77,7 +78,11 @@
             $(':checkbox').parent().css('backgroundColor','#bbb');
             $(':submit').css('backgroundColor','orange');
             $(':reset').css('backgroundColor','orange');
+            //pega os que estão disabled
             $(':disabled').css('opacity','.5');
+            
+            //selecionar elementos checados/selecionados
+            
             $(':checkbox:checked').parent().css('backgroundColor','red');
             $(':radio:checked').parent().css('backgroundColor','red');
             
