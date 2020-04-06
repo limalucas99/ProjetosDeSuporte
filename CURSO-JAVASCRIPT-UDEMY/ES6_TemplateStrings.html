@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+        <h1>Curso Javascript Completo 2018</h1>      
+        
+        
+    
+    
+<script>
+    
+    const nome = 'daniel';
+    const idade = 2;
+    
+    var str = 'O '+ nome+ ' possui '+ idade + ' anos';
+    console.log(str);
+    
+    var str2 = `O ${nome} possui ${idade} anos`;
+    console.log(str2);
+    
+    
+    function trataIdade(strings, ...variaveis){
+        console.log(strings);
+        console.log(variaveis);
+        var idade = variaveis[1];
+        var _strings = [...strings];
+        if(idade === 1){
+            _strings[2] = " ano";
+        }
+        var result = [];
+        _strings.forEach( (str, i) => {
+            result.push(str)
+            if( variaveis[i] !== undefined ){
+                result.push(variaveis[i]);
+            }
+        } );
+        return result.join('');
+        
+    }
+    var str3 = trataIdade`O ${nome} possui ${idade} anos`;
+    
+    const aluno = 'jose';
+    const media = 1.2354;
+    
+    function trataNota(strings, ...valores){
+        const result = [];
+        valores.forEach( (valor, i) =>{
+            if(strings[i] !== undefined) result.push(strings[i]);
+            valor = isNaN(valor) ? valor : valor.toFixed(2);
+            if(valor) result.push(valor);
+        } )
+        return result.join('');
+    }
+    
+    console.log(trataNota`O ${aluno} tem media ${media}`)
+    
+    
+</script>
+    
+    
+</body>
+
+</html>

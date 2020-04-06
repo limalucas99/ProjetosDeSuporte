@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <script src="MVC/beluga2.js"></script>
+  
+    
+</head>
+<body>
+    
+    <h1>Curso JS</h1>
+    
+   
+   
+    
+</body>
+
+ <script>
+
+     /*
+     var testeRegex = 'abc';
+     var str = 'procurando texto abc neste paragrafp. Abc encontrado'; 
+     var regex = new RegExp(testeRegex ,'gi');
+      */
+     
+     var str = 'http://teste.com.br/index.html?ola=mundo&user=daniel&id=123';
+     
+     var regex = /[&?](\w+)=(\w+)/g;
+     
+     var arr, parametros = {};
+     
+     while(arr = regex.exec(str)){
+         parametros[arr[1]] = arr[2];
+     }
+     
+     console.log(parametros);
+     
+     //Barra dentro do parametro são 2 barras
+     //console.log(regex.exec(str));
+     //console.log(regex.exec(str));
+     //console.log(regex.exec(str));
+     
+     /*
+     
+     Negação Regex 
+     
+     [^xyz] Casa com qualquer caracter que não seja x, y ou z. Faça uns experimentos no regexr.
+     
+     \D representa o que não for dígito e \W casa com qualquer caracter que não seja [a-Z], [0-9] e underscore (_)
+     
+     Da mesma forma \B (que é o oposto de \b) busca caracteres que não estão no início ou fim de uma palavra.
+     
+     Nós também vimos que \s busca espaços em branco. Tente adivinhar o que casa com \S. Faça experimentos.
+     
+     Existem outras classes de caracteres que voce pode pesquisar na internet, mas acredite, as que eu passei nesta seção provavelmente serão as únicas que você irá precisar durante toda sua vida como desenvolvedor(a).
+     
+     */
+
+
+</script>
+</html>

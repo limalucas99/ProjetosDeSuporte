@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Curso Javascript</h1>
+    
+    
+</body>
+
+<script>
+    
+    let daniel = {
+        nome: 'Daniel',
+        notas: [1,2,3,4],
+        
+        toString: function(){
+            console.log(`As notas de ${this.nome} foram: `);
+            this.notas.forEach( (nota, i) => console.log(`a nota ${i + 1} de ${this.nome} foi ${nota}`) )
+        },
+        
+        surpresa: function(){
+            console.log(`o aluno ${this.nome} foi .....`);
+            setTimeout( () => {
+                console.log(`Parabens ${this.nome}. Voce foi aprovado`)
+            }, 1000)
+        },
+        
+        teste1: function(){
+            console.log('teste1', this.nome);
+        },
+        teste2: () => {
+            console.log('teste2', this.nome);
+        }
+    }
+    
+    daniel.surpresa();
+    daniel.teste1();
+    daniel.teste2();
+    
+    
+    
+    
+</script>
+
+</html>

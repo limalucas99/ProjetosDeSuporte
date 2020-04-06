@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+        <h1>Curso Javascript Completo 2018</h1>      
+        
+        
+    
+    
+<script>
+    
+    var obj1 = {
+        a: 'teste a',
+        b: 'teste b'
+    }
+    var arr1 = [1,2,3,4,5];
+    
+    for(let propriedade in obj1){
+        console.log(propriedade);
+        console.log(obj1[propriedade]);
+    }
+    
+    
+    //ES6
+    for(let valor of arr1){
+        console.log('valor', valor)
+    }
+    console.log('---')
+    for (let valor of Object.values(obj1)){
+        console.log(valor);
+    }
+    
+    console.log('---')
+    for (let chave of Object.keys(obj1)){
+        console.log(chave);
+    }
+    
+    
+</script>
+    
+    
+</body>
+
+</html>
