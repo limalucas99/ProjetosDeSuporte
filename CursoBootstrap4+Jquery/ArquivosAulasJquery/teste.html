@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+    
+</head>
+<body>
+   
+   <div class="pseudoPai1">
+   <label>Data de nascimento</label>
+   <input type="text" placeholder="Data1" class="formataData" value="31/05/200">
+   </div>
+   <div class="pseudoPai2">
+   <label>Data 1ª habilitação</label>
+   <input type="text" placeholder="Data2" class="formataData" value="21/13/2099">
+   </div>
+   <div class="pseudoPai3">
+   <label>Data de vencimento da CNH</label>
+   <input type="text" placeholder="Data3" class="formataData" value="32/02/2015">
+   </div>
+   
+   
+   <p>
+   <input type="submit" value="Testar" class="btn">
+   </p>
+
+    
+    <script>
+        
+$(function(){
+      debugger;
+     var regex = /([0-3]\d)\/([0-1]\d)\/([12][09]\d{2})$/gm;
+     //Permite somente datas entre 1900 e 2099 
+        
+    $('.formataData').each(function(i, el){
+        debugger;
+        var data = $(el).val();//Transforma o elemento em objeto Jquery e pega o texto
+        var pai = $(el).parent().text().trim(); //Pega o texto que está acima do input
+        var msg = `Por favor, preencha corretamente a data do campo ${pai}
+                \nA data deve estar no formato dd/mm/aaaa: Ex: 20/04/2020`;
+            
+        if(data.match(regex)){
+            data = data.replace(regex,function(dataCompleta,dia,mes){
+                if (parseInt(dia) > 31 || parseInt(mes) - 1 > 12) {
+                el.focus();
+                alert(msg);
+                return false;//Interrompe o loop caso passe por aqui
+                }
+            })
+        }
+        else{
+            alert(msg);
+            return false;
+        }
+                                
+     })
+        
+    });
+        /*else{
+        alert(`A data no indice ${i+1} não deu Regex`);
+        return false; //Interrompe o loop caso passe por aqui
+        }
+        
+            console.log('elemento ', el.parentElement);
+        })
+        
+        
+        function formatData(str,el){     
+        return str.replace(regex, function(data,dia,mes){
+        debugger;
+             if (parseInt(dia) > 31 || parseInt(mes) - 1 > 12) {
+                 alert(`Por favor, preencha corretamente a data do elemento ${el}`);
+                 return false; //Interrompe o loop caso passe por aqui
+                }
+        })
+    }
+    
+    */
+        
+        
+        
+   
+    </script>
+    
+
+    
+</body>
+
+
+
+
+</html>
