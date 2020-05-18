@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/estilo.css" rel="stylesheet">
+
+</head>
+<body>
+  
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="#">Academico</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Aluno<span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Disciplina</a>
+      </li>
+    </ul>
+    <ul id="statusLogin" class="navbar-nav mr-5">
+     
+    </ul>
+  </div>
+</nav>
+  
+   <div class="container topPage">
+  
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="titulo">Cadastrar aluno</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <div class="form-group"><label>Nome:</label><input class="form-control"  id="Nome" type="text"></div>
+        <div class="form-group"><label>Sobrenome:</label><input class="form-control" id="Sobrenome" type="text"></div>
+        <div class="form-group"><label>Telefone:</label><input class="form-control" id="Telefone" type="text"></div>
+        <div class="form-group"><label>RA:</label><input class="form-control" id="RA" type="text"></div>
+        <div>
+           
+        </div>
+      </div>
+      <div class="modal-footer">
+      <button class="btn btn-success" id="btnSalvar" onclick="Cadastrar()">Cadastrar</button>
+            <button class="btn btn-secondary" id="btnCancelar" onclick="Cancelar()">Limpar</button>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="CabecalhoCadastro">
+        <h2 id="titulo">Cadastrar Aluno</h2>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#staticBackdrop">
+        Cadastrar
+        </button>
+     </div>
+      
+       <hr>
+
+        <table class="table table-striped table-dark">
+            <thead>
+                <tr>
+                    <td>Nome</td>
+                    <td>Sobrenome</td>
+                    <td>Telefone</td>
+                    <td>RA</td>
+                    <td>Opções</td>
+                </tr>
+            </thead>
+            <tbody>
+               <th scope="row"></th>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootbox.min.js"></script>
+    
+    <script type="text/javascript">
+        
+    var tbody = document.querySelector('table tbody');    
+    var aluno = {};
+        
+      function Cadastrar(){
+
+         aluno.nome = document.querySelector('#Nome').value;
+         aluno.sobrenome = document.querySelector('#Sobrenome').value;
+         aluno.telefone = document.querySelector('#Telefone').value;
+         aluno.ra = document.querySelector('#RA').value;
+          
+         if(aluno.id === undefined || aluno.id === 0){
+            salvarEstudantes('POST',0,aluno);
+         }
+         else
+         {                     
+            salvarEstudantes('PUT',aluno.id,aluno);
+         }
+          
+         $('#staticBackdrop').modal('hide');
+          
+         carregaEstudantes();
+      }
+        
+    function Cancelar(){
+        var btnSalvar = document.querySelector('#btnSalvar');
+        var btnCancelar = document.querySelector('#btnCancelar');
+        var titulo = document.querySelector('#titulo');
+        document.querySelector('#Nome').value = "";
+        document.querySelector('#Sobrenome').value = "";
+        document.querySelector('#Telefone').value = "";
+        document.querySelector('#RA').value = ""; 
+        
+        
+        aluno = {};
+        
+        btnSalvar.textContent = 'Cadastrar';
+        btnCancelar.textContent =  'Limpar';
+        titulo.textContent = 'Cadastrar Aluno';
+        
+        
+        $('#staticBackdrop').modal('hide');
+        
+    }
+        
+    function carregaEstudantes(){
+        
+         tbody.innerHTML = '';
+        
+         var xhr = new XMLHttpRequest();
+
+          xhr.open('GET', `https://localhost:44366/api/aluno/Recuperar`, true);
+          xhr.setRequestHeader('Authorization',sessionStorage.getItem('token'));
+          xhr.onreadystatechange = function(){
+          if(this.readyState == 4){
+              if(this.status == 200) {
+              var estudantes = JSON.parse(this.responseText);
+              for(var indice in estudantes){
+                  adicionaLinha(estudantes[indice],++indice);
+              }
+           }
+           else if(this.status == 500){
+               var erro = JSON.parse(this.responseText);
+               alert(JSON.stringify(erro));
+           }
+         }
+       }
+              xhr.send(); 
+    }
+          
+   
+        
+    
+    function salvarEstudantes(verbo, id, corpo){
+        
+         var xhr = new XMLHttpRequest();
+        
+          if(id === undefined || id === 0)
+              id = '';
+        
+          xhr.open(verbo, `https://localhost:44366/api/aluno/${id}`, true);
+          //Definir como false faz esperar o retorno antes de carregar os alunos pelo carregaEstudanteS()
+          xhr.setRequestHeader('content-type','application/json');
+          xhr.send(JSON.stringify(corpo));
+    }   
+        
+    function excluirEstudante(id){
+    var xhr = new XMLHttpRequest();
+
+    xhr.open('DELETE', `https://localhost:44366/api/aluno/${id}`, true);
+    //Definir como false faz esperar o retorno antes de carregar os alunos pelo carregaEstudanteS()
+    xhr.send();    
+    }
+        
+    function excluir(estudante){
+        //UTILIZANDO BOOTBOX.js
+        bootbox.confirm({
+            message: `Tem certeza que deseja excluir o estudante ${estudante.nome}?`,
+            buttons: {
+            confirm: {
+            label: 'SIM',
+            className: 'btn-success'
+            },
+            cancel: {
+            label: 'NÃO',
+            className: 'btn-danger'
+            }
+            },
+            callback: function (result) {
+               if(result){
+            excluirEstudante(estudante.id);
+            carregaEstudantes();       
+                    }              
+            }
+        });
+
+        
+     
+    }
+        
+    carregaEstudantes();
+        
+    function editarEstudante(estudante){
+        var btnSalvar = document.querySelector('#btnSalvar');
+        var btnCancelar = document.querySelector('#btnCancelar');
+        var titulo = document.querySelector('#titulo');
+        document.querySelector('#Nome').value = estudante.nome;
+        document.querySelector('#Sobrenome').value = estudante.sobrenome;
+        document.querySelector('#Telefone').value = estudante.telefone; 
+        document.querySelector('#RA').value = estudante.ra;  
+        
+        btnSalvar.textContent = 'Salvar';
+        btnCancelar.textContent =  'Cancelar';
+        titulo.textContent = `Editar Aluno ${estudante.nome}`;
+        
+        aluno = estudante;
+
+    }    
+        
+        
+    function adicionaLinha(estudante,indice){
+        
+        
+        var trow = `<tr>
+<th>${indice}</th>
+<td>${estudante.nome}</td>
+<td>${estudante.sobrenome}</td>
+<td>${estudante.telefone}</td>
+<td>${estudante.ra}</td>
+<td><button class="btn btn-info" data-toggle="modal" data-target="#staticBackdrop" onclick='editarEstudante(${JSON.stringify(estudante)})'>Editar</button>
+<button class="btn btn-danger" onclick='excluir(${JSON.stringify(estudante)})'>Excluir</button></td>
+                 <tr>`;
+        
+        tbody.innerHTML += trow;
+        
+    }
+        
+    </script>
+    
+    <script>
+        
+    
+    (() =>{
+     var statusLogin = document.querySelector("#statusLogin");
+     
+     if(sessionStorage.getItem('token') !=  null){
+         statusLogin.innerHTML =     
+     `<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         ${sessionStorage.getItem('username')}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Perfil</a>
+          <a class="dropdown-item" href="#">Configuração</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#" onclick="logout()">Sair</a>
+        </div>
+      </li>`;
+     }
+        else{
+         statusLogin.innerHTML = `<li><a class="nav-link" href="login.html">Entrar</a></li>`;
+         window.location.href = "login.html";
+        }
+     })();
+    
+    
+    function logout(){
+        sessionStorage.removeItem('token');
+        window.location.href = "login.html";
+    }
+    
+    
+    </script>
+ 
+ 
+	
+</body>
+ 
+    
+</html>

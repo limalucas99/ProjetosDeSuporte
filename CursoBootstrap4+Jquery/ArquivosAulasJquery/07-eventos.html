@@ -104,6 +104,8 @@
 	
     <script>
         
+        //vários eventos juntos
+        
         //não é possível fzr usando vanillaJS
         $('#div1').on('click mousedown mouseup', function(e){
           console.log(e.type);      
@@ -137,6 +139,8 @@
             
         })
         
+        
+        //liberar botão ao concordar com termo
         $('#aceito').on('change', function(e){
             console.log($(this).is(':checked'));
             let selecionado = $(this).is(':checked');
@@ -144,6 +148,7 @@
             //attr() = adiciona um atributo ao botão, exemplo disabled
         })
         
+        //MANIPULAR VÁRIAS CHECKBOXES DE UMA VEZ
         $('[name="checkboxes"]').on('change', function(e){
             
             console.log($('[name="checkboxes"]:checked'))
@@ -165,14 +170,17 @@
             $('#checado').text( $('label[for="'+ _id+'"]').text() + ' - valor: '+ this.value);
         })
         
+        //previne o envio, para que a página não atualize na hora de clicar em submeter
         function enviarDados(e){
             e.preventDefault();//bloqueia o envia dos dados pro servidor
             alert('os dados serão enviados');
         }
         
+        
         $('form').on('submit', enviarDados);
         
         //dbl = duplo clique
+        //EVENTO QUE IRÁ OCORRER SOMENTE UMA VEZ
         // .one = evento acontece somente uma vez
         $(document).one('dblclick', function(e){
             alert('duplo clique no document');
