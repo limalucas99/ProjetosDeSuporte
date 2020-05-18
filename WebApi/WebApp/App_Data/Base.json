@@ -1,0 +1,26 @@
+[
+  {
+    "id": 3,
+    "nome": "Lucas",
+    "sobrenome": "Lima",
+    "telefone": "666666",
+    "ra": 3,
+    "data": "1919-12"
+  },
+  {
+    "id": 4,
+    "nome": "Maria",
+    "sobrenome": "Júlia",
+    "telefone": "123",
+    "ra": 123,
+    "data": "1999-07"
+  },
+  {
+    "id": 5,
+    "nome": "Pedro",
+    "sobrenome": "Alvares",
+    "telefone": "123",
+    "ra": 431,
+    "data": "1991-02"
+  }
+]
