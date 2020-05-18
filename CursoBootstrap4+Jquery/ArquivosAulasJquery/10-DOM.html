@@ -63,7 +63,7 @@
 
 
 	<script>
-       
+    /*   
     //    $('.container').eq(0) pega apenas o primeiro .container que encontrar
       //pegar elementos com atributo title
         //eq deixa td como jQuery
@@ -113,13 +113,14 @@
             console.log(e.currentTarget);
            
         })
-        
+        */
         //seleciona indice 2
         $('.container').eq(2).on('click', '.box',function(e){
-            console.log('2')
-            console.log(this)
-            console.log(e.target)
-            console.log(e.currentTarget);
+            console.log($(this).val());
+            //console.log('2')
+            //console.log(this)
+            //console.log(e.target)
+            //console.log(e.currentTarget);
            //melhor maneira de fazer
             //dessa maneira o listener fica sempre esperando criar elementos novos
         })

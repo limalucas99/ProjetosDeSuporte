@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+  
+<div class="higordo"> 
+<table>
+ <tr>
+     <td>AAAAAAAAA</td>
+     <td>AAAAAAAAA</td>
+     <td>AAAAAAAAA</td>
+</tr>
+<tr>
+     <td>AAAAAAAAA</td>
+     <td>AAAAAAAAA</td>
+     <td>AAAAAAAAA</td>
+</tr>
+<tr>
+     <td>AAAAAAAAA</td>
+     <td>AAAAAAAAA</td>
+     <td>AAAAAAAAA</td>
+</tr>
+<tr>
+     <td>AAAAAAAAA</td>
+     <td>AAAAAAAAA</td>
+     <td>AAAAAAAAA</td>
+</tr>
+  <tr>
+     <td>Abóbora</td>
+     <td>Abacaxi</td>
+     <td>Abacate</td>
+     <input name="status" id="statusAqui" type="checkbox" class="marcado">
+ </tr>
+
+ </table>
+</div> 
+ 
+
+ <button class="btn">Verifica Checkboxes</button>
+    
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  
+  <script>
+      
+    $('#btnInsereRetencao').click(function () {
+            $('.marcado').each(function (indice, elemento) {
+                console.log($(this).prevAll());
+            })
+        });
+      
+    console.log( $('#statusAqui').closest('td') );  
+    
+    </script>
+</body>
+</html>

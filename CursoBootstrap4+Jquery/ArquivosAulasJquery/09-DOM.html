@@ -29,7 +29,7 @@
 			<ul class="enfase container">
 				<li class="enfase2">item 1</li>
 				<li class="enfase2">item 2</li>
-				<li class="enfase2 enfase4">item 3 com enfase4</li>
+				<li class="HIGORLIXO">item 3 com enfase4</li>
 				<li class="enfase2">item 4</li>
 				<li class="enfase2">item 5</li>
 				<li>
@@ -45,25 +45,25 @@
 
 	<script>
         
-        let lis = $('ul.enfase').children('li'); //pega apenas filhos diretos
+        //let lis = $('ul.enfase').children('li'); //pega apenas filhos diretos
         console.log(lis);
         
-        console.log( $('ul.enfase').find('li') ); //pega até <li> 's decendentes
+        //console.log( $('ul.enfase').find('li') ); //pega até <li> 's decendentes
         
-        console.log( $('li').parent() ); //pega o elemento anterior, no caso o pai das <li> , a tag <ul>
-        console.log( $('.enfase4').parent() );
-        console.log( $('.enfase3').parents('.container') ); //vai buscando o .container nos ancestrais, enquanto encontrar ele vai retornando
-        console.log( $('.enfase3').closest('.container') ); // na hr que encontrar um elemento c a classe container, ele para de procurar
-        console.log( $('.enfase3').parentsUntil('.section') ); //vai buscando os pais até que encontre um determinado seletor
+        //console.log( $('li').parent() ); //pega o elemento anterior, no caso o pai das <li> , a tag <ul>
+        //console.log( $('.enfase4').parent() );
+        //console.log( $('.enfase3').parents('.container') ); //vai buscando o .container nos ancestrais, enquanto encontrar ele vai retornando
+        //console.log( $('.enfase3').closest('.container') ); // na hr que encontrar um elemento c a classe container, ele para de procurar
+        //console.log( $('.enfase4').parentsUntil('.section') ); //vai buscando os pais até que encontre um determinado seletor
         // quando encontrar o seletor, ele para, e não inclui o seletor na seleção
         
-        console.log( $('.enfase4').prev() ); // pega o irmão anterior
-        console.log( $('.enfase4').next() ); // pega o irmão posterior
-        console.log( $('.enfase4').prevAll() ); //pega todos os irmãos anteriores
-        console.log( $('.enfase4').nextAll() );//pega todos os irmãos posteriores
-        console.log( $('.enfase4').siblings() );//pega todos os irmãos, exceto ele(que está no seletor)
+        //console.log( $('.enfase4').prev() ); // pega o irmão anterior
+        //console.log( $('.enfase4').next() ); // pega o irmão posterior
+        //console.log( $('.HIGORLIXO').prevAll() ); //pega todos os irmãos anteriores
+        //console.log( $('.enfase4').nextAll() );//pega todos os irmãos posteriores
+        //console.log( $('.enfase4').siblings());//pega todos os irmãos, exceto ele(que está no seletor)
         
-        console.log( $('ul.enfase li').first().nextUntil('.enfase4').add('ul.enfase li.enfase4') );
+        //console.log( $('ul.enfase li').first().nextUntil('.enfase4').add('ul.enfase li.enfase4') );
         //vai buscar os próximos até que ele encontre o .enfase4
         //o método add inclui o enfase4 na seleção, que por padrão o deixaria de fora
         
